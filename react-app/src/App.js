@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import Splash from "./components/Splash"
+import MainUI from "./components/MainUI"
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate } from "./store/session";
 
@@ -34,6 +35,9 @@ function App() {
         </Route>
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
+        </Route>
+        <Route path="/home" exact={true}>
+          <MainUI />
         </Route>
       </Switch>
     </BrowserRouter>
