@@ -5,7 +5,9 @@ import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [profilePhoto, setProfilePhoto] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const user = useSelector(state => state.session.user);
@@ -14,7 +16,7 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      await dispatch(signUp(username, email, password));
+      await dispatch(signUp(username, firstName, lastName, profilePhoto, password));
     }
   };
 
@@ -22,8 +24,16 @@ const SignUpForm = () => {
     setUsername(e.target.value);
   };
 
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
+  const updateFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const updateProfilePhoto = (e) => {
+    setProfilePhoto(e.target.value);
   };
 
   const updatePassword = (e) => {
