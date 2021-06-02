@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
 import "./LoginForm.css"
 
@@ -10,6 +10,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -27,6 +28,11 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
+  const goHome = (e) => {
+    e.preventDefault();
+    history.push('/')
+  }
+
   if (user) {
     return <Redirect to="/" />;
   }
@@ -34,14 +40,16 @@ const LoginForm = () => {
   return (
     <div className="login page">
       <div className="login_form_wrapper">
+        <div className="login_logo" onClick={goHome}>
+          Logo
+        </div>
         <h2>Login</h2>
-        <form onSubmit={onLogin}>
+        <form onSubmit={onLogin} class="login_form">
           <div>
             {errors.map((error) => (
               <div>{error}</div>
             ))}
           </div>
-          <div>
             <label htmlFor="username">Username</label>
             <input
               name="username"
@@ -50,8 +58,6 @@ const LoginForm = () => {
               value={username}
               onChange={updateUsername}
             />
-          </div>
-          <div>
             <label htmlFor="password">Password</label>
             <input
               name="password"
@@ -61,7 +67,6 @@ const LoginForm = () => {
               onChange={updatePassword}
             />
             <button type="submit">Login</button>
-          </div>
         </form>
       </div>
     </div>

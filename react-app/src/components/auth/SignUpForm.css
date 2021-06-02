@@ -1,5 +1,5 @@
-.login{
-    background: url(https://i.ibb.co/tYjTWTm/john-towner-3-Kv48-NS4-WUU-unsplash.jpg) no-repeat center center fixed;
+.signup{
+    background: url(https://i.ibb.co/cr103MQ/patrick-tomasso-5hvn-2-WW6r-Y-unsplash.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.login_form_wrapper{
+.signup_form_wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,16 +20,16 @@
     border-radius: 5px;
 }
 
-.login_logo{
-    height: 50px;
-    width: 50px;
-    background-color: darkcyan;
-    cursor: pointer;
-}
-
-.login_form{
+.signup_form{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.signup_logo{
+    height: 50px;
+    width: 50px;
+    background-color: darkcyan;
+    cursor: pointer;
 }
