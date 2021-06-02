@@ -27,14 +27,14 @@ export const authenticate = () => async (dispatch) => {
     dispatch(setUser(data))
   }
   
-  export const login = (email, password) => async (dispatch)  => {
+  export const login = (username, password) => async (dispatch)  => {
     const response = await fetch('/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        email,
+        username,
         password
       })
     });
@@ -59,7 +59,7 @@ export const authenticate = () => async (dispatch) => {
   };
   
   
-  export const signUp = (username, email, password) => async (dispatch)  => {
+  export const signUp = (username, first_name, last_name, profile_photo, password) => async (dispatch)  => {
     const response = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {
@@ -67,12 +67,16 @@ export const authenticate = () => async (dispatch) => {
       },
       body: JSON.stringify({
         username,
-        email,
+        first_name,
+        last_name,
+        profile_photo,
         password,
       }),
     });
     const data = await response.json();
-    if (data.errors) {
+    console.log(data.errors)
+    if (data.errors){
+      console.log("Hello!")
         return data;
     }
     

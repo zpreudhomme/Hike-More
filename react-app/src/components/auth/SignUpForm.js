@@ -4,8 +4,11 @@ import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
+  const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [profilePhoto, setProfilePhoto] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const user = useSelector(state => state.session.user);
@@ -14,7 +17,10 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, firstName, lastName, profilePhoto, password));
+      if (data.errors) {
+        setErrors(data.errors);
+      }
     }
   };
 
@@ -22,8 +28,16 @@ const SignUpForm = () => {
     setUsername(e.target.value);
   };
 
-  const updateEmail = (e) => {
-    setEmail(e.target.value);
+  const updateFirstName = (e) => {
+    setFirstName(e.target.value);
+  };
+
+  const updateLastName = (e) => {
+    setLastName(e.target.value);
+  };
+
+  const updateProfilePhoto = (e) => {
+    setProfilePhoto(e.target.value);
   };
 
   const updatePassword = (e) => {
@@ -41,21 +55,47 @@ const SignUpForm = () => {
   return (
     <form onSubmit={onSignUp}>
       <div>
+        {errors.map((error) => (
+          <div>{error}</div>
+        ))}
+      </div>
+      <div>
         <label>User Name</label>
         <input
           type="text"
           name="username"
           onChange={updateUsername}
           value={username}
+          required={true}
         ></input>
       </div>
       <div>
-        <label>Email</label>
+        <label>First Name</label>
         <input
           type="text"
-          name="email"
-          onChange={updateEmail}
-          value={email}
+          name="first_name"
+          onChange={updateFirstName}
+          value={firstName}
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input
+          type="text"
+          name="last_name"
+          onChange={updateLastName}
+          value={lastName}
+          required={true}
+        ></input>
+      </div>
+      <div>
+        <label>Profile Photo</label>
+        <input
+          type="text"
+          name="profile_photo"
+          onChange={updateProfilePhoto}
+          value={profilePhoto}
         ></input>
       </div>
       <div>
@@ -65,6 +105,7 @@ const SignUpForm = () => {
           name="password"
           onChange={updatePassword}
           value={password}
+          required={true}
         ></input>
       </div>
       <div>
