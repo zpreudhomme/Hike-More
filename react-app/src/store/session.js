@@ -59,7 +59,7 @@ export const authenticate = () => async (dispatch) => {
   };
   
   
-  export const signUp = (username, firstName, lastName, profilePhoto, password) => async (dispatch)  => {
+  export const signUp = (username, first_name, last_name, profile_photo, password) => async (dispatch)  => {
     const response = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {
@@ -67,14 +67,16 @@ export const authenticate = () => async (dispatch) => {
       },
       body: JSON.stringify({
         username,
-        firstName,
-        lastName,
-        profilePhoto,
+        first_name,
+        last_name,
+        profile_photo,
         password,
       }),
     });
     const data = await response.json();
-    if (data.errors) {
+    console.log(data.errors)
+    if (data.errors){
+      console.log("Hello!")
         return data;
     }
     
