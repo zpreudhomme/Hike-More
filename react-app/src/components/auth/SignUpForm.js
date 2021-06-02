@@ -50,12 +50,30 @@ const SignUpForm = () => {
         ></input>
       </div>
       <div>
-        <label>Email</label>
+        <label>First Name</label>
         <input
           type="text"
-          name="email"
-          onChange={updateEmail}
-          value={email}
+          name="first_name"
+          onChange={updateFirstName}
+          value={firstName}
+        ></input>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input
+          type="text"
+          name="last_name"
+          onChange={updateLastName}
+          value={lastName}
+        ></input>
+      </div>
+      <div>
+        <label>Profile Photo</label>
+        <input
+          type="text"
+          name="profile_photo"
+          onChange={updateProfilePhoto}
+          value={profilePhoto}
         ></input>
       </div>
       <div>

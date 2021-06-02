@@ -31,7 +31,7 @@ function User() {
         <strong>Username</strong> {user.username}
       </li>
       <li>
-        <strong>Email</strong> {user.email}
+        <strong>Full Name</strong> {user.full_name}
       </li>
     </ul>
   );
