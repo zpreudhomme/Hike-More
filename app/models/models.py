@@ -33,3 +33,31 @@ class User(db.Model, UserMixin):
             "full_name": self.full_name,
             "profile_photo": self.profile_photo
             }
+
+
+class Hike(db.Model):
+    __tablename__ = 'hikes'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    location = db.Column(db.String, nullable=False)
+    desription = db.Column(db.Text)
+    user_id = db.Column(db.Integer, nullable=False)
+    state_id = db.Column(db.Integer, nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)  # noqa
+
+
+class Route(db.Model):
+    __tablename__ = 'routes'
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    map_info = db.Column(db.String, nullable=False)
+    description = db.Column(db.Text)
+    user_id = db.Column(db.Integer, nullable=False)
+
+
+class State(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    abbr = db.Column(db.String, nullable=False)
