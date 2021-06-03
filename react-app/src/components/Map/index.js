@@ -1,26 +1,33 @@
 import React from 'react';
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { useSelector } from 'react-redux'
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 
-const MapContainer = () => {
+const mapStyles = {
+  width: '50%',
+  height: '50%'
+};
+
+const MapContainer = (props) => {
+    const userLocation = useSelector(state => state.location.userLocation)
+    let center = { lat: 35.3462, lng: -111.6791 }
+    if (userLocation){
+      center = {lat: userLocation.latitude, lng: userLocation.longitude}
+    }
+    if (props.center){
+      center = props.center
+    }
+    
+    return (
+      <Map
+        google={props.google}
+        zoom={12}
+        // style={mapStyles}
+        initialCenter={center}
+      />
+    );
   
-  const mapStyles = {        
-    height: "100vh",
-    width: "100%"};
-  
-  const defaultCenter = {
-    lat: 41.3851, lng: 2.1734
-  }
-  
-  return (
-     <LoadScript
-       googleMapsApiKey='API KEY'>
-        <GoogleMap
-          mapContainerStyle={mapStyles}
-          zoom={13}
-          center={defaultCenter}
-        />
-     </LoadScript>
-  )
 }
 
-export default MapContainer;
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyDGLZ6pvK4ppKQcbXveaYijERD2EcAW-Eg'
+})(MapContainer);
