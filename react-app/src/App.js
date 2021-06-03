@@ -5,6 +5,7 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import Splash from "./components/Splash"
 import MainUI from "./components/MainUI"
+import MapContainer from "./components/Map"
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate } from "./store/session";
 
@@ -38,6 +39,9 @@ function App() {
         </Route>
         <Route path="/home" exact={true}>
           <MainUI />
+        </Route>
+        <Route path="/map" exact={true}>
+          <MapContainer />
         </Route>
       </Switch>
     </BrowserRouter>
