@@ -1,0 +1,35 @@
+.login{
+    background: url(https://i.ibb.co/tYjTWTm/john-towner-3-Kv48-NS4-WUU-unsplash.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_form_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: darkcyan; */
+    padding: 50px;
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+}
+
+.login_logo{
+    height: 50px;
+    width: 50px;
+    background-color: darkcyan;
+    cursor: pointer;
+}
+
+.login_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

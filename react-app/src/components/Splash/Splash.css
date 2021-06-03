@@ -1,9 +1,4 @@
-.splash_page{
-    position:fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.splash{
     background: url(https://i.ibb.co/7nYfVG0/holly-mandarich-UVy-Of-X3v0-Ls-unsplash.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -25,7 +20,7 @@
     display:flex;
     justify-content: space-between;
     align-items: center;
-    animation: fadeInAnimation ease 2s;
+    animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }

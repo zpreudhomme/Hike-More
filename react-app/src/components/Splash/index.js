@@ -19,7 +19,7 @@ const Splash = () => {
     }
 
     return (
-        <div className="splash_page">
+        <div className="splash page">
             <nav className="splash_nav">
                 <h3>Logo Here</h3>
                 {user === null ? 

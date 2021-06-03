@@ -1,0 +1,35 @@
+.signup{
+    background: url(https://i.ibb.co/cr103MQ/patrick-tomasso-5hvn-2-WW6r-Y-unsplash.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup_form_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: darkcyan; */
+    padding: 50px;
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+}
+
+.signup_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.signup_logo{
+    height: 50px;
+    width: 50px;
+    background-color: darkcyan;
+    cursor: pointer;
+}
