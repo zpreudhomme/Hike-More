@@ -2,10 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux'
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 
+
+
 const mapStyles = {
   width: '50%',
   height: '50%'
 };
+
 
 const MapContainer = (props) => {
     const userLocation = useSelector(state => state.location.userLocation)
@@ -16,7 +19,7 @@ const MapContainer = (props) => {
     if (props.center){
       center = props.center
     }
-    
+
     return (
       <Map
         google={props.google}
@@ -29,5 +32,5 @@ const MapContainer = (props) => {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyDGLZ6pvK4ppKQcbXveaYijERD2EcAW-Eg'
+  apiKey: API_KEY
 })(MapContainer);
