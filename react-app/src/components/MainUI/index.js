@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Map from '../Map'
 import { locateUser } from '../../store/location'
