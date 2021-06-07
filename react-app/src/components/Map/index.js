@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 require('dotenv').config()
 
@@ -28,7 +28,11 @@ const MapContainer = (props) => {
         zoom={12}
         // style={mapStyles}
         initialCenter={center}
-      />
+      >
+        <Marker key="test"
+        position={{lat: 35.3462, lng: -111.6791}}
+        />
+      </Map>
     );
   
 }

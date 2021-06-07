@@ -6,10 +6,10 @@ from app.models import Hike, State, db
 
 hike_routes = Blueprint('hike', __name__)
 
-states = State.query.all()
-state_choice = []
-for state in states:
-    state_choice.append((state.id, state.name))
+# states = State.query.all()
+# state_choice = []
+# for state in states:
+#     state_choice.append((state.id, state.name))
 
 
 @hike_routes.route("/", methods=["POST"])
@@ -18,7 +18,7 @@ def new_hike():
     Creates a new hike in the database
     """
     form = HikeForm()
-    form.state_id.choices = state_choice
+    # form.state_id.choices = state_choice
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         hike = Hike(
