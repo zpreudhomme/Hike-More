@@ -7,7 +7,8 @@ import Splash from "./components/Splash"
 import MainUI from "./components/MainUI"
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate } from "./store/session";
-
+require('dotenv').config()
+console.log("APP,    ", process.env.REACT_APP_GOOGLE_API)
 function App() {
   const user = useSelector(state => state.session.user)
   const [loaded, setLoaded] = useState(false);

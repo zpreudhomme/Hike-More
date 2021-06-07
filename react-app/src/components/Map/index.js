@@ -2,7 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux'
 import { Map, GoogleApiWrapper } from 'google-maps-react';
 
+require('dotenv').config()
 
+const API_KEY = process.env.REACT_APP_GOOGLE_API
 
 const mapStyles = {
   width: '50%',
@@ -30,7 +32,7 @@ const MapContainer = (props) => {
     );
   
 }
-
+console.log(API_KEY)
 export default GoogleApiWrapper({
   apiKey: API_KEY
 })(MapContainer);
