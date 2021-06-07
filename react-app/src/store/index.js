@@ -1,11 +1,15 @@
 import {createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import session from "./session"
+import location from "./location"
+const os = require('os');
 
 const rootReducer = combineReducers({
     session,
+    location,
 });
 
+console.log(os.environ)
 
 let enhancer;
 

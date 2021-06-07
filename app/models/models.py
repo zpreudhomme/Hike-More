@@ -45,8 +45,8 @@ class User(db.Model, UserMixin):
             "full_name": self.full_name,
             "profile_photo": self.profile_photo,
             "created_at": str(self.created_at),
-            "hikes": self.hikes_owned.to_dict_basic(),
-            "routes": self.routes_owned.to_dict_basic()
+            # "hikes": self.hikes_owned.to_dict_basic(),
+            # "routes": self.routes_owned.to_dict_basic()
             }
 
     def to_dict_basic(self):
