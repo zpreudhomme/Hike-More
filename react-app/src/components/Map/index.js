@@ -38,5 +38,5 @@ const MapContainer = (props) => {
   
 }
 export default GoogleApiWrapper({
-  apiKey: API_KEY
+  // apiKey: API_KEY
 })(MapContainer);

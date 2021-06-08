@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Map from '../Map'
 import { locateUser } from '../../store/location'
+import { addAllHikes } from '../../store/hike'
 
 const MainUI = () => {
     const dispatch = useDispatch();
     const userLocation = useSelector(state => state.location.userLocation)
+    const hikes = useSelector(state => state.hike)
 
     const getLocation = () => {
         if (navigator.geolocation){
@@ -21,7 +23,8 @@ const MainUI = () => {
     }
 
     useEffect(() => {
-        getLocation()     
+        dispatch(addAllHikes())     
+        getLocation()
     }, [])
 
 

@@ -7,6 +7,16 @@ from app.models import Hike, State, db
 hike_routes = Blueprint('hike', __name__)
 
 
+@hike_routes.route("/", methods=["GET"])
+def all_hikes():
+    """
+    Returns all hikes in DB
+    """
+    hikes = Hike.query.all()
+    print(hikes)
+    return {'hike': [hike.to_dict() for hike in hikes]}
+
+
 @hike_routes.route("/", methods=["POST"])
 def new_hike():
     """

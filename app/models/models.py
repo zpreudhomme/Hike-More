@@ -83,11 +83,12 @@ class Hike(db.Model):
         return {
             "id": self.id,
             "name": self.name,
-            "location": self.location,
-            "description": self.desription,
-            "created_at": str(self.created_at),
-            "owner": owner.to_dict_basic(),
-            "state": state.to_dict_basic()
+            "latitude": self.latitude,
+            "longitude": self.longitude,
+            "description": self.description
+            # "created_at": str(self.created_at),
+            # "owner": owner.to_dict_basic(),
+            # "state": state.to_dict_basic()
         }
 
     def to_dict_basic(self):
