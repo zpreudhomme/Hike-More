@@ -6,6 +6,7 @@ import SignUpForm from "./components/auth/SignUpForm";
 import Splash from "./components/Splash"
 import MainUI from "./components/MainUI"
 import HikeForm from "./components/HikeForm"
+import Hike from "./components/Hike"
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate } from "./store/session";
 require('dotenv').config()
@@ -44,6 +45,9 @@ function App() {
         <ProtectedRoute path="/new-hike">
           <HikeForm />
         </ProtectedRoute>
+        <Route path="/hike">
+          <Hike />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

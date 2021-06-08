@@ -40,7 +40,7 @@ const MainUI = () => {
         <div className="main page">
             <nav className="main_nav">
                 <a href="/"><img src="./hike-more.png" className="main_logo"/></a>
-                <h1>Hike More</h1>
+                <h1 id="main_nav_text">Hike More</h1>
                 {user ?
                 <button onClick={onLogout}>Logout</button>:
                 <div className = "main_auth_buttons">
@@ -53,6 +53,10 @@ const MainUI = () => {
                 </div>}
             </nav>
             <div className="main_content">
+                <h2>Find Your Hike</h2>
+            <div className="main_map" id="main_map">
+                <Map />
+            </div>
             {userLocation !== null ? 
             <>
                 <h1>User Location</h1>
@@ -60,9 +64,6 @@ const MainUI = () => {
                 <h2>Logitude: {userLocation.longitude}</h2>
             </>:
             <h2>Location Failed</h2>}
-            <div className="main_map" id="main_map">
-                <Map />
-            </div>
                 <h3>Can you see this?</h3>
             </div>
         </div>
