@@ -1,8 +1,15 @@
-/* .main{
-
-} */
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .main_map{
     height: 50%;
     width: 70%;
+}
+
+.mapContainer{
+    width: 500px;
+    height: 300px;
 }

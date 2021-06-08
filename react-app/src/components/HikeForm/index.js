@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useDispatch } from 'react-redux';
 
 const HikeForm = () => {
@@ -6,12 +6,33 @@ const HikeForm = () => {
     const [name, setName] = useState("");
     const [latitude, setLatitude] = useState(0);
     const [longitude, setLongitude] = useState(0);
-    const [description, setDesription] = useState("")
+    const [description, setDescription] = useState("")
     const [state, setState] = useState(0)
+    const [stateChoices, setStateChoices] = useState([])
     const dispatch = useDispatch()
+
+    // useEffect(() => {
+    //     stateChoices = 
+    // }, [])
 
     const onSubmit = () => {
         return null;
+    }
+
+    const updateName = (e) => {
+        setName(e.target.value)
+    }
+
+    const updateLatitude = (e) => {
+        setLatitude(e.target.value)
+    }
+
+    const updateLongitude = (e) => {
+        setLongitude(e.target.value)
+    }
+
+    const updateDescription = (e) => {
+        setDescription(e.target.value)
     }
 
     return (
@@ -28,36 +49,43 @@ const HikeForm = () => {
             <input
               type="text"
               name="username"
-              onChange={updateUsername}
-              value={username}
+              onChange={updateName}
+              value={name}
               required={true}
             ></input>
             <label>Latitude</label>
             <input
               type="text"
               name="first_name"
-              onChange={updateFirstName}
-              value={firstName}
+              onChange={updateLatitude}
+              value={latitude}
+              required={true}
+            ></input>
+            <label>Longitude</label>
+            <input
+              type="text"
+              name="first_name"
+              onChange={updateLongitude}
+              value={longitude}
               required={true}
             ></input>
             <label>Description</label>
             <input
               type="text"
               name="last_name"
-              onChange={updateLastName}
-              value={lastName}
+              onChange={updateDescription}
+              value={description}
               required={true}
             ></input>
-            <label>State</label>
-            <input
-              type="text"
-              name="profile_photo"
-              onChange={updateProfilePhoto}
-              value={profilePhoto}
-            ></input>
-            <button type="submit">Submitlk</button>
+            {/* <label>State</label>
+            <select name="state">
+
+            </select> */}
+            <button type="submit">Submit</button>
           </form>
         </div>
       </div>
     )
 }
+
+export default HikeForm

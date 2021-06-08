@@ -6,11 +6,6 @@ from app.models import Hike, State, db
 
 hike_routes = Blueprint('hike', __name__)
 
-# states = State.query.all()
-# state_choice = []
-# for state in states:
-#     state_choice.append((state.id, state.name))
-
 
 @hike_routes.route("/", methods=["POST"])
 def new_hike():
@@ -33,3 +28,9 @@ def new_hike():
         db.session.commit()
         return hike.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@hike_routes.route("/states")
+def all_states():
+    states = State.query.all()
+    return states.to_dict()
