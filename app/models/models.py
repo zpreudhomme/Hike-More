@@ -64,7 +64,7 @@ class Hike(db.Model):
     name = db.Column(db.String, nullable=False)
     latitude = db.Column(db.Float, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
-    desription = db.Column(db.Text)
+    description = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     state_id = db.Column(db.Integer, db.ForeignKey("states.id"), nullable=False)  # noqa
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)  # noqa
