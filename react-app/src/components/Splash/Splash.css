@@ -23,16 +23,7 @@
     animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-}
-
-.splash_nav h3{
-    background-color: brown;
-    margin-left: 50px;
-    height: 50px;
-    width: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding-top: 15px;
 }
 
 .splash_auth_buttons{
@@ -42,7 +33,7 @@
 
 .splash_auth{
     text-decoration: none;
-    background-color: rgb(132, 188, 241);
+    background-color: #058C42;
     width: 100px;
     height: 33px;
     display: flex;
@@ -50,6 +41,7 @@
     justify-content: center;
     border-radius: 3px;
     font-size: 20px;
+    color: white;
 }
 
 .splash_auth:hover{
@@ -88,4 +80,9 @@
 
 .splash_search_form button{
 margin-top: 30px;
+}
+
+.splash_logo{
+    width: 75px;
+    padding-left: 20px;
 }

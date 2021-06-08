@@ -1,22 +1,41 @@
-.main{
+.main_content{
+    width: 100%;
+    margin-top: 80px;
+}
+
+.main_nav{
+    position: fixed;
+    top: 0px;
+    display: flex;
+    background-color: #04471C;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+    width: 100%;
+}
+
+.main_nav button{
+    text-decoration: none;
+    height: 35px;
+    width: 60px;
+}
+
+.page{
+    width: 100%;
+    overflow-y: scroll;
+}
+
+body{
+    background-color: #E5F2C9;
+}
+
+.main_auth_buttons{
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-right: 15px;
 }
 
-.main_map{
-    height: 50%;
-    width: 70%;
-}
-
-.map_wrapper{
-    width: 500px;
-    height: 300px;
-}
-
-h1{
-    font-size: 100px;
-    color:pink;
-    background-color: green;
-    z-index: 1000;
+.main_logo{
+    width: 65px;
+    padding-left: 15px;
 }

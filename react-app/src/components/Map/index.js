@@ -15,8 +15,7 @@ const mapStyles = {
 const containerStyle = {
   position: 'relative',
   width: '1000px',
-  height: '750px',
-  top: '25px',
+  height: '600px',
   margin: '0 auto'
 }
 
@@ -74,7 +73,9 @@ const MapContainer = (props) => {
             visible={true}
             >
               <div>
-                <h1>{selectedHike.name}</h1>
+                <a href={`/hike/${selectedHike.id}`}>
+                  <h1>{selectedHike.name}</h1>
+                </a>
                 <p>{selectedHike.description}</p>
               </div>
             </InfoWindow>

@@ -21,7 +21,7 @@ const Splash = () => {
     return (
         <div className="splash page">
             <nav className="splash_nav">
-                <h3>Logo Here</h3>
+                <a href="/home"><img src="./hike-more.png" className="splash_logo"/></a>
                 {user === null ? 
                 <div className="splash_auth_buttons">
                     <NavLink to="/sign-up" className="splash_auth splash_signup">
