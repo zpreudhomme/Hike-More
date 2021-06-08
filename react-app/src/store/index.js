@@ -2,11 +2,13 @@ import {createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import session from "./session"
 import location from "./location"
+import hike from "./hike"
 const os = require('os');
 
 const rootReducer = combineReducers({
     session,
     location,
+    hike,
 });
 
 console.log(os.environ)

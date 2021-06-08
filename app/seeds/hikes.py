@@ -24,7 +24,7 @@ def seed_hikes():
     for hike in hikes:
         print(hike)
         load_hike = Hike(name=hike["name"], latitude=hike["latitude"], longitude=hike["longitude"], description=hike["description"], user_id=hike["user_id"], state_id=hike["state_id"])  # noqa
-        
+
         db.session.add(load_hike)
 
     db.session.commit()
