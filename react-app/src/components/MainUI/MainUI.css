@@ -9,7 +9,14 @@
     width: 70%;
 }
 
-.mapContainer{
+.map_wrapper{
     width: 500px;
     height: 300px;
+}
+
+h1{
+    font-size: 100px;
+    color:pink;
+    background-color: green;
+    z-index: 1000;
 }
