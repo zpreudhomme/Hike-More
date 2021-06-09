@@ -45,7 +45,7 @@ function App() {
         <ProtectedRoute path="/new-hike">
           <HikeForm />
         </ProtectedRoute>
-        <Route path="/hike">
+        <Route path="/hike/:id">
           <Hike />
         </Route>
       </Switch>
