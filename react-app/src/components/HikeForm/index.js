@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { useDispatch } from 'react-redux';
+import MainNav from '../MainUI/Navbar'
+import './HikeForm.css'
 
 const HikeForm = () => {
     const [errors, setErrors] = useState([]);
@@ -37,6 +39,8 @@ const HikeForm = () => {
 
     return (
         <div className="hike page">
+        <MainNav />
+        <div className="hike_content">
         <div className="hike_form_wrapper">
           <form onSubmit={onSubmit} className="hike_form">
           <h2>New Hike</h2>
@@ -83,6 +87,7 @@ const HikeForm = () => {
             </select> */}
             <button type="submit">Submit</button>
           </form>
+        </div>
         </div>
       </div>
     )

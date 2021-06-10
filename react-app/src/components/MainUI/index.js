@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import Map from '../Map'
 import { locateUser } from '../../store/location'
 import { addAllHikes } from '../../store/hike'
-import { logout } from '../../store/session'
+import MainNav from './Navbar'
 import './MainUI.css'
 
 const MainUI = () => {
@@ -26,10 +26,6 @@ const MainUI = () => {
         dispatch(locateUser(location.coords.latitude, location.coords.longitude))
     }
 
-    const onLogout = async (e) => {
-        dispatch(logout());
-    };
-
     useEffect(() => {
         dispatch(addAllHikes())     
         getLocation()
@@ -38,22 +34,10 @@ const MainUI = () => {
 
     return (
         <div className="main page">
-            <nav className="main_nav">
-                <a href="/"><img src="./hike-more.png" className="main_logo"/></a>
-                <h1 id="main_nav_text">Hike More</h1>
-                {user ?
-                <button onClick={onLogout}>Logout</button>:
-                <div className = "main_auth_buttons">
-                    <NavLink to="/sign-up" className="splash_auth splash_signup">
-                        Sign Up
-                    </NavLink>
-                    <NavLink to="login" className="splash_auth splash_login">
-                        Login
-                    </NavLink>  
-                </div>}
-            </nav>
+            <MainNav />
             <div className="main_content">
                 <h2>Find Your Hike</h2>
+                <div><NavLink to="/new-hike" className="main_create_btn">Create a Hike</NavLink></div>
             <div className="main_map" id="main_map">
                 <Map />
             </div>

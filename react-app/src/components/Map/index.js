@@ -43,16 +43,16 @@ const MapContainer = (props) => {
     if (props.center){
       center = props.center
     }
-
-    let markers = (hikes.hikes.map((place, i)=> (
-      <Marker 
-        key={i}
-        position={{lat: place.latitude, lng: place.longitude}}
-        onClick={() => markerClick(place)}
-      />
-    )));
-
-    // let markerWindows = 
+  let markers;
+    if (hikes.hikes !== null){
+      markers = (hikes.hikes.map((place, i)=> (
+        <Marker 
+          key={i}
+          position={{lat: place.latitude, lng: place.longitude}}
+          onClick={() => markerClick(place)}
+        />
+      )));
+    }
 
     return (
       <div className="map_wrapper">
@@ -76,6 +76,9 @@ const MapContainer = (props) => {
                 <a href={`/hike/${selectedHike.id}`}>
                   <h1>{selectedHike.name}</h1>
                 </a>
+                <img src={selectedHike.photo} className="map_photo"/>
+                <h2>Latitude: {selectedHike.latitude}</h2>
+                <h2>Longitude: {selectedHike.longitude}</h2>
                 <p>{selectedHike.description}</p>
               </div>
             </InfoWindow>

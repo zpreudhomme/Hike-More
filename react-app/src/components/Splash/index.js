@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../../store/session'
+import logo from '../../assets/images/hike-more.png'
 import './Splash.css'
 
 const Splash = () => {
@@ -21,7 +22,7 @@ const Splash = () => {
     return (
         <div className="splash page">
             <nav className="splash_nav">
-                <a href="/home"><img src="./hike-more.png" className="splash_logo"/></a>
+                <a href="/home"><img src={logo} className="splash_logo"/></a>
                 {user === null ? 
                 <div className="splash_auth_buttons">
                     <NavLink to="/sign-up" className="splash_auth splash_signup">
@@ -31,7 +32,7 @@ const Splash = () => {
                         Login
                     </NavLink> 
                 </div> :
-                    <button onClick={onLogout}>Logout</button>
+                    <p className="splash_auth splash_logout" onClick={onLogout}>Logout</p>
                  }
             </nav>
             <div className="splash_content">
