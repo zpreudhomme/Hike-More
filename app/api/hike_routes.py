@@ -40,6 +40,14 @@ def new_hike():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
+@hike_routes.route("/<int:id>")
+def get_hike(id):
+    print(id)
+    hike = Hike.query.get(id)
+    print(hike.to_dict())
+    return hike.to_dict()
+
+
 @hike_routes.route("/states")
 def all_states():
     states = State.query.all()

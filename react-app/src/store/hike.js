@@ -9,7 +9,7 @@ const initialState = { hikes: null };
 
 export const addAllHikes = () => async dispatch => {
     console.log("inside where I want to be")
-    const response = await fetch('api/hike/')
+    const response = await fetch('/api/hike/')
 
     const data = await response.json()
     if (data.errors){
@@ -17,6 +17,17 @@ export const addAllHikes = () => async dispatch => {
     }
 
     dispatch(setHikes(data))
+}
+
+export const getHike = async (id) => {
+    console.log("individual hike")
+    const response = await fetch(`/api/hike/${id}`)
+
+    const data = await response.json()
+    if (data.errors){
+        return data.errors
+    }
+    return data
 }
 
 export default function reducer(state=initialState, action){

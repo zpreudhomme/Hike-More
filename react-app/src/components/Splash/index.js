@@ -32,7 +32,7 @@ const Splash = () => {
                         Login
                     </NavLink> 
                 </div> :
-                    <button onClick={onLogout}>Logout</button>
+                    <p className="splash_auth splash_logout" onClick={onLogout}>Logout</p>
                  }
             </nav>
             <div className="splash_content">

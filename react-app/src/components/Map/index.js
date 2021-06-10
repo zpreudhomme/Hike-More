@@ -43,16 +43,16 @@ const MapContainer = (props) => {
     if (props.center){
       center = props.center
     }
-
-    let markers = (hikes.hikes.map((place, i)=> (
-      <Marker 
-        key={i}
-        position={{lat: place.latitude, lng: place.longitude}}
-        onClick={() => markerClick(place)}
-      />
-    )));
-
-    // let markerWindows = 
+  let markers;
+    if (hikes.hikes !== null){
+      markers = (hikes.hikes.map((place, i)=> (
+        <Marker 
+          key={i}
+          position={{lat: place.latitude, lng: place.longitude}}
+          onClick={() => markerClick(place)}
+        />
+      )));
+    }
 
     return (
       <div className="map_wrapper">
@@ -63,7 +63,7 @@ const MapContainer = (props) => {
           containerStyle={containerStyle}
           initialCenter={center}
         >
-          { markers }
+          {/* { markers } */}
           {selectedHike &&
             <InfoWindow 
             position ={{
