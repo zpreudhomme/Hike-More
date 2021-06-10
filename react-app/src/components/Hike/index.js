@@ -6,6 +6,12 @@ import Map from '../Map'
 import './Hike.css'
 import { getHike, addAllHikes } from "../../store/hike"
 
+const containerStyle={
+    position: 'relative',
+    height: '300px',
+    margin: '0 auto',
+    float: 'right'
+}
 const Hike = () => {
     const hikes = useSelector(state => state.hike.hikes)
     const [hike, setHike] = useState(null)
@@ -28,9 +34,10 @@ const Hike = () => {
             <MainNav />
             {hike !== null ?
             <div className="hike_content">
-                <h1>{hike.name}</h1>
-                <Map center={center}/>
-                <h3>{hike.description}</h3>
+                <img src={hike.photo} className="hike_photo" />
+                <h1 className="hike_name">{hike.name}</h1>
+                <p className="hike_description">{hike.description}</p>
+                <Map center={center} containerStyle={containerStyle}/>
             </div>:
             <>
             </>

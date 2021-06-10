@@ -5,7 +5,37 @@
     padding-top: 15px;
     margin: 75px auto 0px auto;
     height: 100%;
-    display: flex;
+    display: grid;
     flex-direction: column;
     align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 675px 50px 1fr;
+    grid-template-areas: 
+    "photo photo photo"
+    ". name ."
+    "description description map";
+}
+
+.hike_name{
+    grid-area: name;
+    margin: 0 auto;
+    font-size: 40px;
+}
+
+.hike_description{
+    grid-area: description;
+    margin: 0 auto;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.hike_photo{
+    grid-area: photo;
+    max-height: 675px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.hike_map{
+    grid-area: map
 }

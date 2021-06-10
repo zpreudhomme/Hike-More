@@ -34,6 +34,10 @@ const LoginForm = () => {
     history.push('/')
   }
 
+  const demoLogin = () => {
+    dispatch(login("Demo","password"))
+  }
+
   if (user) {
     return <Redirect to="/home" />;
   }
@@ -66,6 +70,7 @@ const LoginForm = () => {
               onChange={updatePassword}
             />
             <button type="submit">Login</button>
+            <button type="button" onClick={demoLogin}>Demo User</button>
         </form>
       </div>
     </div>

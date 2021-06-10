@@ -12,24 +12,29 @@ const mapStyles = {
   display: 'inline-block'
 };
 
-const containerStyle = {
-  position: 'relative',
-  width: '1000px',
-  height: '600px',
-  margin: '0 auto'
-}
-
 
 const MapContainer = (props) => {
-    const userLocation = useSelector(state => state.location.userLocation)
-    const hikes = useSelector(state => state.hike)
+  const userLocation = useSelector(state => state.location.userLocation)
+  const hikes = useSelector(state => state.hike)
+  
+  const [selectedHike, setSelectedHike] = useState();
+  
+  const markerClick = (hike) => {
+    setSelectedHike(hike)
+    console.log("I have set selected hike to:   ", hike)
+  }
 
-    const [selectedHike, setSelectedHike] = useState();
-
-    const markerClick = (hike) => {
-      setSelectedHike(hike)
-      console.log("I have set selected hike to:   ", hike)
+  let containerStyle;
+  if (!props.containerStyle){
+      containerStyle = {
+      position: 'relative',
+      width: '1000px',
+      height: '600px',
+      margin: '0 auto'
     }
+  } else{
+    containerStyle = props.containerStyle
+  }
 
     // useEffect(() => {
     //   console.log(selectedHike)
