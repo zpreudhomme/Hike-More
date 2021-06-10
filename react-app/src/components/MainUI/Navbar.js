@@ -22,7 +22,7 @@ const MainNav = () => {
                     <NavLink to="/sign-up" className="splash_auth splash_signup">
                         Sign Up
                     </NavLink>
-                    <NavLink to="login" className="splash_auth splash_login">
+                    <NavLink to="/login" className="splash_auth splash_login">
                         Login
                     </NavLink>  
                 </div>}
