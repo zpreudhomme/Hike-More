@@ -6,7 +6,7 @@ import logo from '../../assets/images/hike-more.png'
 
 const MainNav = () => {
     const dispatch = useDispatch()
-    const user = useSelector(state => state.user)
+    const user = useSelector(state => state.session.user)
 
     const onLogout = async (e) => {
         dispatch(logout());
@@ -14,10 +14,10 @@ const MainNav = () => {
 
     return (
         <nav className="main_nav">
-                <a href="/"><img src={logo} className="main_logo"/></a>
+                <a href="/home"><img src={logo} className="main_logo"/></a>
                 <h1 id="main_nav_text">Hike More</h1>
                 {user ?
-                <button onClick={onLogout}>Logout</button>:
+                <p className="splash_auth splash_signup" onClick={onLogout}>Logout</p>:
                 <div className = "main_auth_buttons">
                     <NavLink to="/sign-up" className="splash_auth splash_signup">
                         Sign Up

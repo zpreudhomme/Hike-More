@@ -76,6 +76,8 @@ const MapContainer = (props) => {
                 <a href={`/hike/${selectedHike.id}`}>
                   <h1>{selectedHike.name}</h1>
                 </a>
+                <h2>Latitude: {selectedHike.latitude}</h2>
+                <h2>Longitude: {selectedHike.longitude}</h2>
                 <p>{selectedHike.description}</p>
               </div>
             </InfoWindow>
