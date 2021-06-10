@@ -37,6 +37,7 @@ const MainUI = () => {
             <MainNav />
             <div className="main_content">
                 <h2>Find Your Hike</h2>
+                <div><NavLink to="/new-hike" className="main_create_btn">Create a Hike</NavLink></div>
             <div className="main_map" id="main_map">
                 <Map />
             </div>

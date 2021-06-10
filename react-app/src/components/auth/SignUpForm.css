@@ -17,7 +17,8 @@
     /* background-color: darkcyan; */
     padding: 50px;
     backdrop-filter: blur(10px);
-    border-radius: 5px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .signup_form{
@@ -28,8 +29,6 @@
 }
 
 .signup_logo{
-    height: 50px;
-    width: 50px;
-    background-color: darkcyan;
+    width: 100px;
     cursor: pointer;
 }

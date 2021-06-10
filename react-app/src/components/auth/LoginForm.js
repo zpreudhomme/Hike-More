@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { login } from "../../store/session";
+import logo from '../../assets/images/hike-more.png'
 import "./LoginForm.css"
 
 const LoginForm = () => {
@@ -40,9 +41,7 @@ const LoginForm = () => {
   return (
     <div className="login page">
       <div className="login_form_wrapper">
-        <div className="login_logo" onClick={goHome}>
-          Logo
-        </div>
+        <img className="login_logo" src={logo} onClick={goHome}/>
         <h2>Login</h2>
         <form onSubmit={onLogin} class="login_form">
           <div>
