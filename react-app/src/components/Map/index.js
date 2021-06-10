@@ -63,7 +63,7 @@ const MapContainer = (props) => {
           containerStyle={containerStyle}
           initialCenter={center}
         >
-          {/* { markers } */}
+          { markers }
           {selectedHike &&
             <InfoWindow 
             position ={{

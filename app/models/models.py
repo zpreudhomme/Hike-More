@@ -17,7 +17,8 @@ class User(db.Model, UserMixin):
     hikes_owned = db.relationship(
         "Hike",
         back_populates="owner",
-        cascade='all, delete-orphan'
+        cascade='all, delete-orphan',
+        foreign_keys="Hike.user_id"
     )
 
     routes_owned = db.relationship(
@@ -64,13 +65,15 @@ class Hike(db.Model):
     latitude = db.Column(db.Float, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
     description = db.Column(db.Text)
+    photo = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     state_id = db.Column(db.Integer, db.ForeignKey("states.id"), nullable=False)  # noqa
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)  # noqa
 
     owner = db.relationship(
         "User",
-        back_populates="hikes_owned"
+        back_populates="hikes_owned",
+        foreign_keys=[user_id]
     )
 
     state = db.relationship(
@@ -86,6 +89,7 @@ class Hike(db.Model):
             "longitude": self.longitude,
             "description": self.description,
             "created_at": str(self.created_at),
+            "photo": self.photo,
             # "owner": owner.to_dict_basic(),
             # "state": state.to_dict_basic()
         }

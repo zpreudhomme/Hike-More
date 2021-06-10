@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import MainNav from '../MainUI/Navbar'
 import Map from '../Map'
 import './Hike.css'
-import { getHike } from "../../store/hike"
+import { getHike, addAllHikes } from "../../store/hike"
 
 const Hike = () => {
     const hikes = useSelector(state => state.hike.hikes)
@@ -12,11 +12,13 @@ const Hike = () => {
     const [center, setCenter] = useState({})
     const {id} = useParams()
 
+    const dispatch = useDispatch()
+
     
     useEffect(async () => {
         let data = await getHike(id)
         setHike(data)
-        console.log(data)
+        dispatch(addAllHikes())
         let tempCenter = {lat: data.latitude, lng: data.longitude}
         setCenter(tempCenter)
     }, [])
