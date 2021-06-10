@@ -76,6 +76,7 @@ const MapContainer = (props) => {
                 <a href={`/hike/${selectedHike.id}`}>
                   <h1>{selectedHike.name}</h1>
                 </a>
+                <img src={selectedHike.photo} className="map_photo"/>
                 <h2>Latitude: {selectedHike.latitude}</h2>
                 <h2>Longitude: {selectedHike.longitude}</h2>
                 <p>{selectedHike.description}</p>

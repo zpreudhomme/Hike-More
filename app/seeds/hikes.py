@@ -1,6 +1,7 @@
 from faker import Faker
 from geopy import Nominatim
 import random
+import time
 from app.models import db, Hike, State
 
 photoArray = [
@@ -30,28 +31,31 @@ def seed_hikes():
     locator = Nominatim(user_agent="mine")
 
     hikes = [
-        {'name': 'Grand Canyon', 'latitude': 36.05798, 'longitude': -112.1267, 'description': "It's a long hike through the deepest canyon in the world.", 'user_id': 1, 'state_id': 3, 'photo': 'https://images.unsplash.com/photo-1516302350523-4c29d47b89e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'}  # noqa
+        # {'name': 'Grand Canyon', 'latitude': 36.05798, 'longitude': -112.1267, 'description': "It's a long hike through the deepest canyon in the world.", 'user_id': 1, 'state_id': 3, 'photo': 'https://images.unsplash.com/photo-1516302350523-4c29d47b89e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'}  # noqa
     ]
 
-    for i in range(50):
+    for i in range(100):
         info = fake.local_latlng()
         location = locator.reverse(str(info[0])+", "+str(info[1]))
         address = location.raw['address']
         state = address["state"]
-
+        photoIndex = random.randint(1, 18)
+        photoIndex -= 1
+        photo = photoArray[photoIndex]
         selected = State.query.filter_by(name=state).first()
         hikes.append({
             'name': info[2],
             'latitude': info[0],
             'longitude': info[1],
-            'description': fake.sentence(nb_words=random.randint(1, 15)),
+            'description': fake.sentence(nb_words=random.randint(40, 150)),
             'user_id': 1,
             'state_id': selected.id,
-            'photo': photoArray[random.randint(0, 17)]
+            'photo': photo
         })
+        time.sleep(1)
 
     for hike in hikes:
-        load_hike = Hike(name=hike["name"], latitude=hike["latitude"], longitude=hike["longitude"], description=hike["description"], user_id=hike["user_id"], state_id=hike["state_id"])  # noqa
+        load_hike = Hike(name=hike["name"], latitude=hike["latitude"], longitude=hike["longitude"], description=hike["description"], user_id=hike["user_id"], state_id=hike["state_id"], photo=hike["photo"])  # noqa
 
         db.session.add(load_hike)
 

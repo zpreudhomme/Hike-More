@@ -71,3 +71,8 @@ body{
     width: 148px;
     height: 48px;
 }
+
+.map_photo{
+    max-width: 200px;
+    max-height: 250px;
+}
