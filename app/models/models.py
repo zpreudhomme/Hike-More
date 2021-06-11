@@ -4,6 +4,17 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 
+user_hikes = db.Table(
+    "user_hikes",
+    db.Column(
+        "user_id", db.Integer, db.ForeignKey("users.id"), primary_key=True
+    ),
+    db.Column(
+        "hike_id", db.Integer, db.ForeignKey("hikes.id"), primary_key=True
+    )
+)
+
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
@@ -24,6 +35,12 @@ class User(db.Model, UserMixin):
         "Route",
         back_populates="owner",
         cascade='all, delete-orphan'
+    )
+
+    favorite_hikes = db.relationship(
+        "Hike",
+        secondary="user_hikes",
+        back_populates="user_favorites"
     )
 
     @property
@@ -78,6 +95,12 @@ class Hike(db.Model):
     state = db.relationship(
         "State",
         back_populates="hikes_in_state"
+    )
+
+    user_favorites = db.relationship(
+        "User",
+        secondary="user_hikes",
+        back_populates="favorite_hikes"
     )
 
     def to_dict(self):
