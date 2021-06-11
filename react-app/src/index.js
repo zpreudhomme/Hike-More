@@ -6,8 +6,6 @@ import App from './App';
 import configureStore from './store';
 
 require('dotenv').config()
-const API_KEY = process.env
-console.log(API_KEY)
 
 const store = configureStore();
 

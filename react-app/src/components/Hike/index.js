@@ -17,6 +17,7 @@ const Hike = () => {
     const user = useSelector(state=> state.session.user)
     const [hike, setHike] = useState(null)
     const [center, setCenter] = useState({})
+    const [API_KEY, SET_API_KEY] = useState(null)
     const {id} = useParams()
 
     const history = useHistory()
@@ -35,6 +36,14 @@ const Hike = () => {
     const editHike = () => {
         history.push(`/edit-hike/${id}`)
     }
+
+    useEffect(() => {
+        (async () => {
+          const response = await fetch('/api/map');
+          const data = await response.json()
+          SET_API_KEY(data.api_key);
+        })()
+      }, [])
     
     useEffect(async () => {
         let data = await getHike(id)
@@ -44,7 +53,7 @@ const Hike = () => {
         setCenter(tempCenter)
     }, [])
 
-    return (
+    return API_KEY && (
         <div className="hike page">
             <MainNav />
             {hike !== null ?
@@ -52,7 +61,7 @@ const Hike = () => {
                 <img src={hike.photo} className="hike_photo" />
                 <h1 className="hike_name">{hike.name}</h1>
                 <p className="hike_description">{hike.description}</p>
-                <Map center={center} containerStyle={containerStyle}/>
+                <Map center={center} containerStyle={containerStyle} API_KEY={API_KEY}/>
                 <div className="add_to_fav"><button type="button" onClick={addToFav}>I Want to Go!</button></div>
                 {user && user.id === hike.owner.id && (
                     <div className="hike_owner_buttons">
