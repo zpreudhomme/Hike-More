@@ -14,6 +14,7 @@ const MainUI = () => {
     const user = useSelector(state => state.user)
     const hikes = useSelector(state => state.hike)
     const [recentHikes, setRecentHikes] = useState([])
+    const [API_KEY, SET_API_KEY] = useState(null)
 
     useEffect(() => {
         let arr = []
@@ -44,14 +45,22 @@ const MainUI = () => {
         getLocation()
     }, [])
 
+    useEffect(() => {
+        (async () => {
+          const response = await fetch('/api/map');
+          const data = await response.json()
+          SET_API_KEY(data.api_key);
+        })()
+      }, [])
 
-    return (
+
+    return API_KEY && (
         <div className="main page">
             <MainNav />
             <div className="main_content">
                 <h2>Find Your Hike</h2>
             <div className="main_map" id="main_map">
-                <Map />
+                <Map API_KEY={API_KEY}/>
             </div>
             <div><NavLink to="/new-hike" className="main_create_btn">Create Your Own Hike</NavLink></div>
             <h2>Recent Hikes Added</h2>
