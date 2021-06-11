@@ -9,17 +9,22 @@
     flex-direction: column;
     align-items: center;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 675px 50px 1fr;
+    grid-template-rows: 675px 80px 1fr, 80px;
     grid-template-areas: 
     "photo photo photo"
-    ". name ."
-    "description description map";
+    "name name name"
+    "description description map"
+    "button button button";
 }
 
 .hike_name{
     grid-area: name;
     margin: 0 auto;
     font-size: 40px;
+    border-bottom: 1px solid black;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 15px;
 }
 
 .hike_description{
@@ -36,6 +41,20 @@
     margin: 0 auto;
 }
 
-.hike_map{
-    grid-area: map
+.hike_content + div {
+    grid-area: map;
+}
+
+.add_to_fav{
+    grid-area: button;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}   
+
+.add_to_fav button{
+    height: 40px;
+    width: 175px;
 }

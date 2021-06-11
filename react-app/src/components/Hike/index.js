@@ -7,10 +7,11 @@ import './Hike.css'
 import { getHike, addAllHikes } from "../../store/hike"
 
 const containerStyle={
-    position: 'relative',
+    position:'relative',
+    width: '400px',
     height: '300px',
     margin: '0 auto',
-    float: 'right'
+    // 'grid-area': 'map',
 }
 const Hike = () => {
     const hikes = useSelector(state => state.hike.hikes)
@@ -19,6 +20,10 @@ const Hike = () => {
     const {id} = useParams()
 
     const dispatch = useDispatch()
+
+    const addToFav = () => {
+        console.log("Adding to fav list")
+    }
 
     
     useEffect(async () => {
@@ -38,6 +43,7 @@ const Hike = () => {
                 <h1 className="hike_name">{hike.name}</h1>
                 <p className="hike_description">{hike.description}</p>
                 <Map center={center} containerStyle={containerStyle}/>
+                <div className="add_to_fav"><button type="button" onClick={addToFav}>I Want to Go!</button></div>
             </div>:
             <>
             </>
