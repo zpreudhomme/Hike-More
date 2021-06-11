@@ -8,7 +8,6 @@ const setHikes = (hikes) => ({
 const initialState = { hikes: null };
 
 export const addAllHikes = () => async dispatch => {
-    console.log("inside where I want to be")
     const response = await fetch('/api/hike/')
 
     const data = await response.json()
@@ -20,13 +19,32 @@ export const addAllHikes = () => async dispatch => {
 }
 
 export const getHike = async (id) => {
-    console.log("individual hike")
     const response = await fetch(`/api/hike/${id}`)
 
     const data = await response.json()
     if (data.errors){
         return data.errors
     }
+    return data
+}
+
+export const createHike = (name, latitude, longitude, description, photo, state_id) => async dispatch => {
+    const response = await fetch('/api/hike/', {
+        method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        latitude,
+        longitude,
+        description,
+        photo,
+        state_id
+      })
+    })
+    
+    const data = await response.json()
     return data
 }
 

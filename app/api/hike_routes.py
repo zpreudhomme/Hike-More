@@ -25,14 +25,17 @@ def new_hike():
     form = HikeForm()
     # form.state_id.choices = state_choice
     form['csrf_token'].data = request.cookies['csrf_token']
+    print("I am here!!!---------", form)
     if form.validate_on_submit():
+        print("form.data")
         hike = Hike(
             name=form.data["name"],
             latitude=form.data["latitude"],
             longitude=form.data["longitude"],
             description=form.data["description"],
             user_id=current_user.id,
-            state_id=form.data["state_id"]
+            state_id=form.data["state_id"],
+            photo=form.data["photo"]
         )
         db.session.add(hike)
         db.session.commit()
@@ -46,9 +49,3 @@ def get_hike(id):
     hike = Hike.query.get(id)
     print(hike.to_dict())
     return hike.to_dict()
-
-
-@hike_routes.route("/states")
-def all_states():
-    states = State.query.all()
-    return states.to_dict()
