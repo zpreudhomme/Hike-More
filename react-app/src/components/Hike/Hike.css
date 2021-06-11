@@ -9,18 +9,18 @@
     flex-direction: column;
     align-items: center;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 675px 80px 1fr, 80px;
+    grid-template-rows: 675px 80px 1fr, 50px;
     grid-template-areas: 
     "photo photo photo"
     "name name name"
     "description description map"
-    "button button button";
+    "button button owner";
     box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.445), -1px 0px 7px rgba(0, 0, 0, 0.445);
 }
 
 .hike_name{
     grid-area: name;
-    margin: 0 auto;
+    margin: 0 auto 15px auto;
     font-size: 40px;
     border-bottom: 1px solid black;
     width: 100%;
@@ -50,11 +50,17 @@
 .add_to_fav{
     grid-area: button;
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     padding-top: 50px;
     padding-bottom: 50px;
 }   
+
+.hike_owner_buttons{
+    grid-area: owner;
+    display: flex;
+    justify-content: space-around;
+}
 
 .add_to_fav button{
     height: 40px;

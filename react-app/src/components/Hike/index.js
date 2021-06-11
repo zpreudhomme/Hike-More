@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import MainNav from '../MainUI/Navbar'
 import Map from '../Map'
 import './Hike.css'
-import { getHike, addAllHikes } from "../../store/hike"
+import { getHike, addAllHikes, deleteHike, editHike } from "../../store/hike"
 
 const containerStyle={
     position:'relative',
@@ -14,24 +14,26 @@ const containerStyle={
     // 'grid-area': 'map',
 }
 const Hike = () => {
-    const hikes = useSelector(state => state.hike.hikes)
     const user = useSelector(state=> state.session.user)
     const [hike, setHike] = useState(null)
     const [center, setCenter] = useState({})
     const {id} = useParams()
 
+    const history = useHistory()
     const dispatch = useDispatch()
 
     const addToFav = () => {
         console.log("Adding to fav list")
     }
 
-    const deleteHike = () => {
-        console.log("Deleting Hike")
+    const handleDeleteHike = async() => {
+        let data = dispatch(deleteHike(id))
+        console.log(data)
+        history.push('/home')
     }
 
     const editHike = () => {
-        console.log("Editing Hike")
+        history.push(`/edit-hike/${id}`)
     }
     
     useEffect(async () => {
@@ -55,7 +57,7 @@ const Hike = () => {
                 {user && user.id === hike.owner.id && (
                     <div className="hike_owner_buttons">
                         <div className="edit_hike"><button type="button" onClick={editHike}>Edit My Hike</button></div>
-                        <div className="delete_hike"><button type="button" onClick={deleteHike}>Delete My Hike</button></div>
+                        <div className="delete_hike"><button type="button" onClick={handleDeleteHike}>Delete My Hike</button></div>
                     </div>
                 )}
             </div>:
