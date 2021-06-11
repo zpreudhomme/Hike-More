@@ -47,7 +47,7 @@ const MainUI = () => {
 
     useEffect(() => {
         (async () => {
-          const response = await fetch('/api/map');
+          const response = await fetch('/api/map/');
           const data = await response.json()
           SET_API_KEY(data.api_key);
         })()
