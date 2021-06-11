@@ -5,6 +5,7 @@ import Map from '../Map'
 import { locateUser } from '../../store/location'
 import { addAllHikes } from '../../store/hike'
 import MainNav from './Navbar'
+import HikeCard from './HikeCard'
 import './MainUI.css'
 
 const MainUI = () => {
@@ -12,6 +13,18 @@ const MainUI = () => {
     const userLocation = useSelector(state => state.location.userLocation)
     const user = useSelector(state => state.user)
     const hikes = useSelector(state => state.hike)
+    const [recentHikes, setRecentHikes] = useState([])
+
+    useEffect(() => {
+        let arr = []
+        if(hikes.hikes){
+            for (let i = hikes.hikes.length - 1; i > hikes.hikes.length - 13; i--){
+                arr.push(hikes.hikes[i])
+            }
+        }
+        console.log("Im an arr", arr)
+        setRecentHikes(arr)
+    }, [hikes])
 
     const getLocation = () => {
         if (navigator.geolocation){
@@ -37,18 +50,16 @@ const MainUI = () => {
             <MainNav />
             <div className="main_content">
                 <h2>Find Your Hike</h2>
-                <div><NavLink to="/new-hike" className="main_create_btn">Create a Hike</NavLink></div>
             <div className="main_map" id="main_map">
                 <Map />
             </div>
-            {userLocation !== null ? 
-            <>
-                <h1>User Location</h1>
-                <h2>Latitude: {userLocation.latitude}</h2>
-                <h2>Logitude: {userLocation.longitude}</h2>
-            </>:
-            <h2>Location Failed</h2>}
-                <h3>Can you see this?</h3>
+            <div><NavLink to="/new-hike" className="main_create_btn">Create Your Own Hike</NavLink></div>
+            <h2>Recent Hikes Added</h2>
+            <div className="main_recent">
+            { recentHikes.map((hike, i) => (
+                <HikeCard hike={hike} key={i} />
+            ))}
+            </div>
             </div>
         </div>
         )

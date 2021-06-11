@@ -32,7 +32,8 @@ def new_hike():
             longitude=form.data["longitude"],
             description=form.data["description"],
             user_id=current_user.id,
-            state_id=form.data["state_id"]
+            state_id=form.data["state_id"],
+            photo=form.data["photo"]
         )
         db.session.add(hike)
         db.session.commit()
@@ -46,9 +47,3 @@ def get_hike(id):
     hike = Hike.query.get(id)
     print(hike.to_dict())
     return hike.to_dict()
-
-
-@hike_routes.route("/states")
-def all_states():
-    states = State.query.all()
-    return states.to_dict()
