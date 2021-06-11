@@ -219,10 +219,6 @@ const HikeForm = () => {
     const dispatch = useDispatch()
     const history = useHistory();
 
-    // useEffect(() => {
-    //     stateChoices = 
-    // }, [])
-
     const onSubmit = async(e) => {
       e.preventDefault()
       const data = await dispatch(createHike(name, latitude, longitude, description, photo, state))
