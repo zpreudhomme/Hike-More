@@ -15,6 +15,7 @@ const containerStyle={
 }
 const Hike = () => {
     const hikes = useSelector(state => state.hike.hikes)
+    const user = useSelector(state=> state.session.user)
     const [hike, setHike] = useState(null)
     const [center, setCenter] = useState({})
     const {id} = useParams()
@@ -25,6 +26,13 @@ const Hike = () => {
         console.log("Adding to fav list")
     }
 
+    const deleteHike = () => {
+        console.log("Deleting Hike")
+    }
+
+    const editHike = () => {
+        console.log("Editing Hike")
+    }
     
     useEffect(async () => {
         let data = await getHike(id)
@@ -44,6 +52,12 @@ const Hike = () => {
                 <p className="hike_description">{hike.description}</p>
                 <Map center={center} containerStyle={containerStyle}/>
                 <div className="add_to_fav"><button type="button" onClick={addToFav}>I Want to Go!</button></div>
+                {user && user.id === hike.owner.id && (
+                    <div className="hike_owner_buttons">
+                        <div className="edit_hike"><button type="button" onClick={editHike}>Edit My Hike</button></div>
+                        <div className="delete_hike"><button type="button" onClick={deleteHike}>Delete My Hike</button></div>
+                    </div>
+                )}
             </div>:
             <>
             </>

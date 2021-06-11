@@ -44,6 +44,7 @@
 
 .hike_content + div {
     grid-area: map;
+    margin: 15px 15px 0px 0px
 }
 
 .add_to_fav{

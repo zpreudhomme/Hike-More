@@ -17,7 +17,6 @@ class User(db.Model, UserMixin):
     hikes_owned = db.relationship(
         "Hike",
         back_populates="owner",
-        cascade='all, delete-orphan',
         foreign_keys="Hike.user_id"
     )
 
@@ -90,8 +89,8 @@ class Hike(db.Model):
             "description": self.description,
             "created_at": str(self.created_at),
             "photo": self.photo,
-            # "owner": owner.to_dict_basic(),
-            # "state": state.to_dict_basic()
+            "owner": self.owner.to_dict_basic(),
+            "state": self.state.to_dict_basic()
         }
 
     def to_dict_basic(self):
