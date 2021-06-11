@@ -28,7 +28,37 @@ export const getHike = async (id) => {
     return data
 }
 
-export const createHike = (name, latitude, longitude, description, photo, state_id) => async dispatch => {
+export const deleteHike = (id) => async dispatch => {
+    console.log("Where I want to be")
+    const response = await fetch(`/api/hike/${id}`, {
+        method: 'DELETE',
+    })
+    console.log("finished")
+    const data = await response.json()
+    return data;
+}
+
+export const editHike = (id, name, latitude, longitude, description, photo, state_id) => async () => {
+    const response = await fetch(`/api/hike/${id}`, {
+        method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        latitude,
+        longitude,
+        description,
+        photo,
+        state_id
+      })
+    })
+
+    const data = await response.json()
+    return data;
+}
+
+export const createHike = (name, latitude, longitude, description, photo, state_id) => async () => {
     const response = await fetch('/api/hike/', {
         method: 'POST',
       headers: {

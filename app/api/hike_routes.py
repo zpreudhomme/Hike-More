@@ -45,7 +45,28 @@ def new_hike():
 
 @hike_routes.route("/<int:id>")
 def get_hike(id):
-    print(id)
     hike = Hike.query.get(id)
-    print(hike.to_dict())
+    return hike.to_dict()
+
+
+@hike_routes.route("/<int:id>", methods=["DELETE"])
+def delete_hike(id):
+    print("I've been hit---------------", id)
+    hike = Hike.query.get(id)
+    print(hike)
+    db.session.delete(hike)
+    db.session.commit()
+    return "Deleted!"
+
+
+@hike_routes.route("/<int:id>", methods=["PUT"])
+def put_hike(id):
+    hike = Hike.query.get(id)
+    hike.name = request.json['name']
+    hike.latitude = request.json['latitude']
+    hike.longitude = request.json['longitude']
+    hike.description = request.json['description']
+    hike.photo = request.json['photo']
+    hike.state_id = request.json['state_id']
+    db.session.commit()
     return hike.to_dict()
