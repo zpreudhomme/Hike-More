@@ -31,11 +31,6 @@
 }
 
 
-body{
-    background-color: #6E7E85;
-    margin-left: 0;
-}
-
 .main_auth_buttons{
     display: flex;
     align-items: center;
