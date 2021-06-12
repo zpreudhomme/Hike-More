@@ -35,7 +35,7 @@ def seed_hikes():
         # {'name': 'Grand Canyon', 'latitude': 36.05798, 'longitude': -112.1267, 'description': "It's a long hike through the deepest canyon in the world.", 'user_id': 1, 'state_id': 3, 'photo': 'https://images.unsplash.com/photo-1516302350523-4c29d47b89e0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'}  # noqa
     ]
 
-    for i in range(200):
+    for i in range(50):
         info = fake.local_latlng()
         location = locator.reverse(str(info[0])+", "+str(info[1]))
         address = location.raw['address']
