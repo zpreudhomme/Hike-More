@@ -14,7 +14,7 @@
     "photo photo photo"
     "name name name"
     "description description map"
-    "button button owner";
+    "button favorites owner";
     box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.445), -1px 0px 7px rgba(0, 0, 0, 0.445);
 }
 
@@ -60,6 +60,10 @@
     grid-area: owner;
     display: flex;
     justify-content: space-around;
+}
+
+.hike_total_favs{
+    grid-area: favorites
 }
 
 .add_to_fav button{

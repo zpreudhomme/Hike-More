@@ -10,16 +10,16 @@ import './MainUI.css'
 
 const MainUI = () => {
     const dispatch = useDispatch();
-    const userLocation = useSelector(state => state.location.userLocation)
     const user = useSelector(state => state.user)
     const hikes = useSelector(state => state.hike)
     const [recentHikes, setRecentHikes] = useState([])
+    const [popularHikes, setPopularHikes] = useState([])
     const [API_KEY, SET_API_KEY] = useState(null)
 
     useEffect(() => {
         let arr = []
         if(hikes.hikes){
-            for (let i = hikes.hikes.length - 1; i > hikes.hikes.length - 13; i--){
+            for (let i = hikes.hikes.length - 1; i > hikes.hikes.length - 9; i--){
                 arr.push(hikes.hikes[i])
             }
         }
@@ -45,6 +45,12 @@ const MainUI = () => {
         getLocation()
     }, [])
 
+    useEffect(async () => {
+        const response = await fetch("/api/hike/popular")
+        const data = await response.json()
+        console.log(data)
+    }, [])
+
     useEffect(() => {
         (async () => {
           const response = await fetch('/api/map/');
@@ -59,16 +65,20 @@ const MainUI = () => {
             <MainNav />
             <div className="main_content">
                 <h2>Find Your Hike</h2>
-            <div className="main_map" id="main_map">
-                <Map API_KEY={API_KEY}/>
-            </div>
-            <div><NavLink to="/new-hike" className="main_create_btn">Create Your Own Hike</NavLink></div>
-            <h2>Recent Hikes Added</h2>
-            <div className="main_recent">
-            { recentHikes.map((hike, i) => (
-                <HikeCard hike={hike} key={i} />
-            ))}
-            </div>
+                <div className="main_map" id="main_map">
+                    <Map API_KEY={API_KEY}/>
+                </div>
+                <div><NavLink to="/new-hike" className="main_create_btn">Create Your Own Hike</NavLink></div>
+                <h2>Recent Hikes Added</h2>
+                <div className="main_recent">
+                    { recentHikes.map((hike, i) => (
+                        <HikeCard hike={hike} key={i} />
+                    ))}
+                </div>
+                <h2>Popular Hikes</h2>
+                <div className="main_popular">
+
+                </div>
             </div>
         </div>
         )

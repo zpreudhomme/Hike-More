@@ -8,6 +8,7 @@ import MainUI from "./components/MainUI"
 import HikeForm from "./components/HikeForm"
 import Hike from "./components/Hike"
 import EditHike from "./components/EditHike"
+import Favorites from "./components/Favorites"
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate } from "./store/session";
 require('dotenv').config()
@@ -48,6 +49,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/edit-hike/:id">
           <EditHike />
+        </ProtectedRoute>
+        <ProtectedRoute path="/favorites">
+          <Favorites />
         </ProtectedRoute>
         <Route path="/hike/:id">
           <Hike />

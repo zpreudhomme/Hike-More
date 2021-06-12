@@ -78,6 +78,13 @@ export const createHike = (name, latitude, longitude, description, photo, state_
     return data
 }
 
+export const favoriteHikes = () => async () => {
+    const response = await fetch('/api/hike/favorites')
+
+    const data = await response.json();
+    return data;
+}
+
 export default function reducer(state=initialState, action){
     switch(action.type){
         case SET_HIKES:
