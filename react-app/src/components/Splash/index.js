@@ -37,9 +37,11 @@ const Splash = () => {
             </nav>
             <div className="splash_content">
                 <div className="splash_center">
-                    <h2>Where do you want to go today?</h2>
+                    <h2>Where do <span className="splash_emphasis">you</span> want to go?</h2>
                     <form onSubmit={searchHikes} className="splash_search_form">
-                        <input type="text"></input>
+                        <input 
+                        type="text"
+                        placeholder="Search by hike, state, or creator..."></input>
                         <button type="submit">Search</button>
                     </form>
                 </div>

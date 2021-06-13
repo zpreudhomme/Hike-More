@@ -84,6 +84,7 @@
     border-radius: 5px;
     padding: 1px;
     cursor: pointer;
+    overflow-x: hidden;
 }
 
 .hike_card h1{

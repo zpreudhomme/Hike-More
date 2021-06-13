@@ -32,6 +32,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 250px;
 }
 
 .signup_logo{
@@ -53,4 +54,26 @@
     font-size: 20px;
     margin-bottom: 7px;
     font-weight: 400;
+}
+
+.signup_btn{
+    text-decoration: none;
+    background-color: #058C42;
+    width: 115px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin: 10px 0px -20px 0px;
+}
+
+.signup_btn:hover{
+    border: white 1px solid;
+    width: 113px;
+    height: 31px;
 }

@@ -71,13 +71,14 @@ const SignUpForm = () => {
                 <div>{error}</div>
               ))}
             </div>
-            <label>User Name</label>
+            <label>Username</label>
             <input
               type="text"
               name="username"
               onChange={updateUsername}
               value={username}
               required={true}
+              placeholder="Username"
             ></input>
             <label>First Name</label>
             <input
@@ -86,6 +87,7 @@ const SignUpForm = () => {
               onChange={updateFirstName}
               value={firstName}
               required={true}
+              placeholder="First Name"
             ></input>
             <label>Last Name</label>
             <input
@@ -94,6 +96,7 @@ const SignUpForm = () => {
               onChange={updateLastName}
               value={lastName}
               required={true}
+              placeholder="Last Name"
             ></input>
             <label>Profile Photo</label>
             <input
@@ -101,6 +104,7 @@ const SignUpForm = () => {
               name="profile_photo"
               onChange={updateProfilePhoto}
               value={profilePhoto}
+              placeholder="Profile Photo (url)"
             ></input>
             <label>Password</label>
             <input
@@ -109,6 +113,7 @@ const SignUpForm = () => {
               onChange={updatePassword}
               value={password}
               required={true}
+              placeholder="Password"
             ></input>
             <label>Repeat Password</label>
             <input
@@ -117,8 +122,9 @@ const SignUpForm = () => {
               onChange={updateRepeatPassword}
               value={repeatPassword}
               required={true}
+              placeholder="Repeat Password"
             ></input>
-            <button type="submit">Sign Up</button>
+            <button type="submit" className="signup_btn">Sign Up</button>
           </form>
         </div>
       </div>

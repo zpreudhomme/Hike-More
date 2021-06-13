@@ -47,7 +47,7 @@ const LoginForm = () => {
       <div className="login_form_wrapper">
         <img className="login_logo" src={logo} onClick={goHome}/>
         <h2>Log in</h2>
-        <form onSubmit={onLogin} class="login_form">
+        <form onSubmit={onLogin} className="login_form">
           <div>
             {errors.map((error) => (
               <div>{error}</div>

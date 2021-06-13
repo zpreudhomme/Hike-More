@@ -92,6 +92,12 @@
     border: none;
 }
 
+#demo_login:hover{
+    border: white 1px solid;
+    width: 113px;
+    height: 31px;
+}
+
 .login_buttons{
     display: flex;
     justify-content: space-between;
