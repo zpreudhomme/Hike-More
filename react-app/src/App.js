@@ -9,6 +9,8 @@ import HikeForm from "./components/HikeForm"
 import Hike from "./components/Hike"
 import EditHike from "./components/EditHike"
 import Favorites from "./components/Favorites"
+import NavBar from "./components/MainUI/Navbar"
+import About from "./components/About"
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate } from "./store/session";
 require('dotenv').config()
@@ -55,6 +57,13 @@ function App() {
         </ProtectedRoute>
         <Route path="/hike/:id">
           <Hike />
+        </Route>
+        <Route path ="/about">
+          <About />
+        </Route>
+        <Route>
+          <NavBar />
+          <h1 className="page_not_found">404 Not Found</h1>
         </Route>
       </Switch>
     </BrowserRouter>

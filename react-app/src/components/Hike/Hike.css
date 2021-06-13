@@ -86,9 +86,25 @@
     cursor: pointer;
 }
 
+.hike_card h1{
+    margin: 0;
+    text-align:center;
+}
+
+.hike_card h3{
+    margin: 5px;
+}
+
 .hike_card_photo{
     max-height: 40%;
     max-width: 100%;
+}
+
+.hike_card_data{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .main_recent{

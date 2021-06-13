@@ -1,0 +1,42 @@
+.about_content{
+    width: 80%;
+    margin-top: 75px;
+    background-color: #E5F2C9;
+    padding-top: 15px;
+    margin: 75px auto 0px auto;
+    height: 100%;
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.445), -1px 0px 7px rgba(0, 0, 0, 0.445);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 75px 1fr;
+    grid-template-areas: 
+    "title title"
+    "project creator";
+}
+
+.about_title{
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+}
+
+.about_project{
+    grid-area: project;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about_creator{
+    grid-area: creator;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.about_profile_img{
+    border-radius: 50%;
+    width: 300px;
+}

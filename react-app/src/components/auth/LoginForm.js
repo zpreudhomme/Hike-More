@@ -46,7 +46,7 @@ const LoginForm = () => {
     <div className="login page">
       <div className="login_form_wrapper">
         <img className="login_logo" src={logo} onClick={goHome}/>
-        <h2>Login</h2>
+        <h2>Log in</h2>
         <form onSubmit={onLogin} class="login_form">
           <div>
             {errors.map((error) => (
@@ -69,8 +69,10 @@ const LoginForm = () => {
               value={password}
               onChange={updatePassword}
             />
-            <button type="submit">Login</button>
-            <button type="button" onClick={demoLogin}>Demo User</button>
+            <div className="login_buttons">
+              <button type="submit" id="login_submit">Log in</button>
+              <button type="button" onClick={demoLogin} id="demo_login">Demo User</button>
+            </div>
         </form>
       </div>
     </div>

@@ -29,18 +29,20 @@ const Splash = () => {
                         Sign Up
                     </NavLink>
                     <NavLink to="login" className="splash_auth splash_login">
-                        Login
+                        Log in
                     </NavLink> 
                 </div> :
                     <p className="splash_auth splash_logout" onClick={onLogout}>Logout</p>
                  }
             </nav>
             <div className="splash_content">
-                <h2>Where do you want to go today?</h2>
-                <form onSubmit={searchHikes} className="splash_search_form">
-                    <input type="text"></input>
-                    <button type="submit">Search</button>
-                </form>
+                <div className="splash_center">
+                    <h2>Where do you want to go today?</h2>
+                    <form onSubmit={searchHikes} className="splash_search_form">
+                        <input type="text"></input>
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
             </div>
         </div>
     )

@@ -100,6 +100,5 @@ def delete_from_favorites(id):
 def most_popular():
     hikes = Hike.query.all()
     popular = []
-    
     print("HERE_____________", hikes)
     return "test"
