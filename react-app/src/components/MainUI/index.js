@@ -6,6 +6,7 @@ import { locateUser } from '../../store/location'
 import { addAllHikes } from '../../store/hike'
 import MainNav from './Navbar'
 import HikeCard from './HikeCard'
+import Footer from "../Footer"
 import './MainUI.css'
 
 const MainUI = () => {
@@ -19,7 +20,7 @@ const MainUI = () => {
     useEffect(() => {
         let arr = []
         if(hikes.hikes){
-            for (let i = hikes.hikes.length - 1; i > hikes.hikes.length - 9; i--){
+            for (let i = hikes.hikes.length - 1; i > hikes.hikes.length - 7; i--){
                 arr.push(hikes.hikes[i])
             }
         }
@@ -48,7 +49,7 @@ const MainUI = () => {
     useEffect(async () => {
         const response = await fetch("/api/hike/popular")
         const data = await response.json()
-        console.log(data)
+        setPopularHikes(data.popular)
     }, [])
 
     useEffect(() => {
@@ -69,17 +70,26 @@ const MainUI = () => {
                     <Map API_KEY={API_KEY}/>
                 </div>
                 <div><NavLink to="/new-hike" className="main_create_btn">Create Your Own Hike</NavLink></div>
-                <h2>Recent Hikes Added</h2>
-                <div className="main_recent">
-                    { recentHikes.map((hike, i) => (
-                        <HikeCard hike={hike} key={i} />
-                    ))}
+                <div className="main_grid_wrapper">
+                <div className="main_recent_wrapper">
+                    <h2>Recent Hikes Added</h2>
+                    <div className="main_recent">
+                        { recentHikes.map((hike, i) => (
+                            <HikeCard hike={hike} key={hike.id} />
+                        ))}
+                    </div>
                 </div>
-                <h2>Popular Hikes</h2>
-                <div className="main_popular">
-
+                <div className="main_popular_wrapper">
+                    <h2>Popular Hikes</h2>
+                    <div className="main_popular">
+                            {popularHikes.map((hike, i) => (
+                                <HikeCard hike={hike} key={i} />
+                            ))}
+                    </div>
+                </div>
                 </div>
             </div>
+            <Footer />
         </div>
         )
 }

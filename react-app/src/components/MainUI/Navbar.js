@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 import { logout } from '../../store/session'
 import logo from '../../assets/images/hike-more.png'
+import logo_text from '../../assets/images/hike-more-text.png'
 
 const MainNav = () => {
     const dispatch = useDispatch()
@@ -14,10 +15,18 @@ const MainNav = () => {
 
     return (
         <nav className="main_nav">
-                <a href="/home"><img src={logo} className="main_logo"/></a>
-                <h1 id="main_nav_text">Hike More</h1>
+            <div className="main_nav_logo_container">
+                <a href="/"><img src={logo} className="main_logo"/></a>
+                <a href="/home"><img src={logo_text} /></a>
+            </div>
                 {user ?
-                <p className="splash_auth splash_signup" onClick={onLogout}>Logout</p>:
+                <div className="nav_authorized_buttons">
+                    <NavLink to="/favorites" className="splash_auth">
+                        Favorites
+                    </NavLink>
+                    <p className="splash_auth" onClick={onLogout}>Logout</p>
+                </div>
+                :
                 <div className = "main_auth_buttons">
                     <NavLink to="/sign-up" className="splash_auth splash_signup">
                         Sign Up

@@ -65,7 +65,7 @@ const Splash = () => {
                         placeholder="Search by hike, state, or creator..."
                         value={searchParams}
                         onChange={(e) => setSearchParams(e.target.value)}></input>
-                        <button type="submit">Search</button>
+                        {/* <button type="submit">Search</button> */}
                     </form>
                 </div>
             </div>

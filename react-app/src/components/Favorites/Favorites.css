@@ -1,0 +1,20 @@
+.favorite_content{
+    width: 80%;
+    margin-top: 75px;
+    background-color: #E5F2C9;
+    padding-top: 15px;
+    margin: 75px auto 0px auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.445), -1px 0px 7px rgba(0, 0, 0, 0.445);
+}
+
+.favorites_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 25px;
+}

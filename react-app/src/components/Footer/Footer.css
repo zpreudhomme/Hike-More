@@ -1,0 +1,27 @@
+.footer{
+    width: 100%;
+    height: 75px;
+    background-color: #04471C;
+    margin: 0px 0px -8px 0px;
+    box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.445), -1px 0px 7px rgba(0, 0, 0, 0.445);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding-right: 7px;
+    color: #058C42
+}
+
+h2 a {
+    text-decoration: none;
+    color:#058C42
+}
+
+h2 a:hover{
+    color: black
+}
+
+.footer h2{
+    text-align: center;
+    vertical-align: center;
+    
+}

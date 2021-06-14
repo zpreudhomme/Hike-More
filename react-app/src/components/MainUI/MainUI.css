@@ -30,6 +30,10 @@
     width: 60px;
 }
 
+.main_nav_logo_container{
+    display: flex;
+    align-items:center;
+}
 
 .main_auth_buttons{
     display: flex;
@@ -37,14 +41,23 @@
     padding-right: 15px;
 }
 
+.nav_authorized_buttons{
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+}
+
+.nav_authorized_buttons p {
+    margin-left: 15px;
+}
+
 .main_logo{
     width: 65px;
-    padding-left: 15px;
+    padding: 5px 5px 0px 15px;
 }
 
 #main_nav_text{
     position: relative;
-    
 }
 
 .main_create_btn{
@@ -64,11 +77,42 @@
 
 .main_create_btn:hover{
     border: 1px solid white;
-    width: 198px;
+    width: 223px;
     height: 48px;
 }
 
 .map_photo{
     max-width: 200px;
     max-height: 250px;
+}
+
+.main_popular{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 25px;
+}
+
+.main_grid_wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "recent popular";
+    padding-top: 25px;
+}
+
+.main_recent_wrapper{
+    grid-area: recent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main_popular_wrapper{
+    grid-area: popular;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
