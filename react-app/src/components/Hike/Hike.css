@@ -14,7 +14,7 @@
     "photo photo photo"
     "name name name"
     "description description map"
-    "button button owner";
+    "button favorites owner";
     box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.445), -1px 0px 7px rgba(0, 0, 0, 0.445);
 }
 
@@ -62,6 +62,10 @@
     justify-content: space-around;
 }
 
+.hike_total_favs{
+    grid-area: favorites
+}
+
 .add_to_fav button{
     height: 40px;
     width: 175px;
@@ -80,11 +84,28 @@
     border-radius: 5px;
     padding: 1px;
     cursor: pointer;
+    overflow-x: hidden;
+}
+
+.hike_card h1{
+    margin: 0;
+    text-align:center;
+}
+
+.hike_card h3{
+    margin: 5px;
 }
 
 .hike_card_photo{
     max-height: 40%;
     max-width: 100%;
+}
+
+.hike_card_data{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .main_recent{

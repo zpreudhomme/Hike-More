@@ -49,6 +49,7 @@
     font-size: 20px;
     color: white;
     cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .splash_auth:hover{
@@ -65,13 +66,12 @@
     /* background-color: bisque; */
     height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 
 .splash_content h2{
-    margin-top: -350px;
     font-size: 75px;
     animation: fadeInAnimation ease 2s;
     animation-iteration-count: 1;
@@ -80,16 +80,61 @@
 
 .splash_search_form{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: -15px 0px 30px 0px;
 }
 
 .splash_search_form button{
-margin-top: 30px;
+    margin-left: 30px;
+    text-decoration: none;
+    background-color: #058C42;
+    width: 100px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.splash_search_form button:hover{
+    border: 1px white solid;
+    width: 98px;
+    height: 31px;
+    margin-left: 32px;
+}
+
+.splash_search_form input{
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    border: none;
 }
 
 .splash_logo{
     width: 75px;
     padding-left: 20px;
+}
+
+.page_not_found{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+.splash_center{
+    margin-top: 10%;
+    background: rgba(255, 255, 255, 0.315);
+    backdrop-filter: blur(10px);
+    padding: 0px 30px;
+    border-radius: 10px;
+}
+
+.splash_emphasis{
+    font-style: oblique;
 }

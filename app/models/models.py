@@ -61,7 +61,8 @@ class User(db.Model, UserMixin):
             "full_name": self.full_name,
             "profile_photo": self.profile_photo,
             "created_at": str(self.created_at),
-            # "hikes": self.hikes_owned.to_dict_basic(),
+            "favorite_hikes": [hike.to_dict_basic() for hike in self.favorite_hikes],   # noqa
+            "hikes_owned": [hike.to_dict_basic() for hike in self.hikes_owned],
             # "routes": self.routes_owned.to_dict_basic()
             }
 
@@ -113,15 +114,16 @@ class Hike(db.Model):
             "created_at": str(self.created_at),
             "photo": self.photo,
             "owner": self.owner.to_dict_basic(),
-            "state": self.state.to_dict_basic()
+            "state": self.state.to_dict_basic(),
+            "user_favorites": [user.to_dict_basic() for user in self.user_favorites],   # noqa
+            "total_favorites": len([user.to_dict_basic() for user in self.user_favorites]),  # noqa
         }
 
     def to_dict_basic(self):
         return {
             "id": self.id,
             "name": self.name,
-            "location": self.location,
-            "description": self.desription,
+            "description": self.description,
             "created_at": str(self.created_at),
         }
 
@@ -178,7 +180,7 @@ class State(db.Model):
             "id": self.id,
             "name": self.name,
             "abbr": self.abbr,
-            "hikes": self.hikes_in_state.to_dict_basic()
+            "hikes": [hike.to_dict_basic() for hike in self.hikes_in_state]
         }
 
     def to_dict_basic(self):

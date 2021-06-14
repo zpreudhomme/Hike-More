@@ -2,7 +2,7 @@ from flask import Blueprint, session, request
 from flask_login import current_user
 from app.api.auth_routes import validation_errors_to_error_messages
 from app.forms import HikeForm
-from app.models import Hike, State, db
+from app.models import Hike, State, db, User
 
 hike_routes = Blueprint('hike', __name__)
 
@@ -70,3 +70,35 @@ def put_hike(id):
     hike.state_id = request.json['state_id']
     db.session.commit()
     return hike.to_dict()
+
+
+@hike_routes.route("/favorites")
+def get_favorites():
+    id = current_user.id
+    user = User.query.get(id)
+    data = user.to_dict()
+    return {"hikes": data["favorite_hikes"]}
+
+
+@hike_routes.route("/favorites/add/<int:id>", methods=["PUT"])
+def add_to_favorites(id):
+    hike = Hike.query.get(id)
+    current_user.favorite_hikes.append(hike)
+    db.session.commit()
+    return current_user.to_dict()
+
+
+@hike_routes.route("/favorites/delete/<int:id>", methods=["PUT"])
+def delete_from_favorites(id):
+    hike = Hike.query.get(id)
+    current_user.favorite_hikes.remove(hike)
+    db.session.commit()
+    return current_user.to_dict()
+
+
+@hike_routes.route("/popular")
+def most_popular():
+    hikes = Hike.query.all()
+    popular = []
+    print("HERE_____________", hikes)
+    return "test"

@@ -17,7 +17,7 @@ const MapContainer = (props) => {
   const userLocation = useSelector(state => state.location.userLocation)
   const hikes = useSelector(state => state.hike)
   
-  const [selectedHike, setSelectedHike] = useState();
+  const [selectedHike, setSelectedHike] = useState(null);
   
   const markerClick = (hike) => {
     setSelectedHike(hike)

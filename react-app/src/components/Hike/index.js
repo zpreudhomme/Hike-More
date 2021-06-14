@@ -16,6 +16,8 @@ const containerStyle={
 const Hike = () => {
     const user = useSelector(state=> state.session.user)
     const [hike, setHike] = useState(null)
+    const [favorited, setFavorited] = useState(null)
+    const [totalFavorites, setTotalFavorites] = useState(null)
     const [center, setCenter] = useState({})
     const [API_KEY, SET_API_KEY] = useState(null)
     const {id} = useParams()
@@ -23,8 +25,35 @@ const Hike = () => {
     const history = useHistory()
     const dispatch = useDispatch()
 
-    const addToFav = () => {
+    const addToFav = async () => {
+        if (!user){
+            history.push('/login')
+        }
+        let response = await fetch(`/api/hike/favorites/add/${id}`, {
+            method: ["PUT"]
+        })
+        let data = await response.json()
+        console.log(data)
+        setFavorited(true)
+        setTotalFavorites(totalFavorites + 1)
+
         console.log("Adding to fav list")
+    }
+
+    const removeFromFav = async () => {
+        if (!user){
+            history.push('/login')
+        }
+
+        let response = await fetch(`/api/hike/favorites/delete/${id}`, {
+            method: ["PUT"]
+        })
+        let data = await response.json()
+        console.log(data)
+        setFavorited(false)
+        setTotalFavorites(totalFavorites - 1)
+
+        console.log("Remove from Fav")
     }
 
     const handleDeleteHike = async() => {
@@ -36,6 +65,19 @@ const Hike = () => {
     const editHike = () => {
         history.push(`/edit-hike/${id}`)
     }
+
+    useEffect(() => {
+        if (user){
+            for (let i = 0; i < user.favorite_hikes.length; i++){
+                console.log(user.favorite_hikes[i].id, id)
+                if (user.favorite_hikes[i].id === Number(id)){
+                    setFavorited(true)
+                    return;
+                }
+            }
+        }   
+        setFavorited(false)
+    },[id, user])
 
     useEffect(() => {
         (async () => {
@@ -51,6 +93,7 @@ const Hike = () => {
         dispatch(addAllHikes())
         let tempCenter = {lat: data.latitude, lng: data.longitude}
         setCenter(tempCenter)
+        setTotalFavorites(data.user_favorites.length)
     }, [])
 
     return API_KEY && (
@@ -60,9 +103,16 @@ const Hike = () => {
             <div className="hike_content">
                 <img src={hike.photo} className="hike_photo" />
                 <h1 className="hike_name">{hike.name}</h1>
+                <h3 className="hike_total_favs">Favorites: {totalFavorites}</h3>
                 <p className="hike_description">{hike.description}</p>
                 <Map center={center} containerStyle={containerStyle} API_KEY={API_KEY}/>
-                <div className="add_to_fav"><button type="button" onClick={addToFav}>I Want to Go!</button></div>
+                <div className="hike_favorite_container">
+                    {favorited ? (
+                        <div className={"remove_from_favorites"} onClick={removeFromFav}>Remove</div>
+                    ): (
+                        <div className={"add_to_favorites"} onClick={addToFav}>Add</div> 
+                    )}
+                </div>
                 {user && user.id === hike.owner.id && (
                     <div className="hike_owner_buttons">
                         <div className="edit_hike"><button type="button" onClick={editHike}>Edit My Hike</button></div>
