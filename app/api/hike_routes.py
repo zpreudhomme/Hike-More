@@ -105,5 +105,5 @@ def most_popular():
     hikes = Hike.query.all()
     all_hikes = [hike.to_dict() for hike in hikes]
     sorted_hikes = sorted(all_hikes, key=grab_favorites, reverse=True)
-    popular = sorted_hikes[0:8]
+    popular = sorted_hikes[0:6]
     return {"popular": popular}
