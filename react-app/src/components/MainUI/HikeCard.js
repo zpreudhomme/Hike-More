@@ -12,7 +12,7 @@ const HikeCard = ({hike}) => {
             <img src={hike.photo} className="hike_card_photo" />
             <div className="hike_card_data">
                 <h1 className="hike_card_name">{hike.name}</h1>
-                <h3>Favorites: {hike.user_favorites.length}</h3>
+                <h3>Favorites: {hike.total_favorites}</h3>
                 <h3 className="hike_card_lat">Lat: {hike.latitude}</h3>
                 <h3 className="hike_card_lng">Lng: {hike.longitude}</h3>
             </div>
