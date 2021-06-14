@@ -24,7 +24,6 @@ const MainUI = () => {
                 arr.push(hikes.hikes[i])
             }
         }
-        console.log(arr)
         setRecentHikes(arr)
     }, [hikes])
 

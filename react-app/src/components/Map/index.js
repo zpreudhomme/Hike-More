@@ -17,22 +17,19 @@ const MapContainer = (props) => {
   const hikes = useSelector(state => state.hike)
   
   const [selectedHike, setSelectedHike] = useState(null);
+  const [firstLoad, setFirstLoad] = useState(false)
   
   const markerClick = (hike) => {
     setSelectedHike(hike)
-    console.log("I have set selected hike to:   ", hike)
+    setFirstLoad(true)
   }
 
   useEffect(() => {
-    console.log(hikes.hikes)
     if (hikes.hikes){
       setSelectedHike(hikes.hikes[0])
     }
   }, [hikes])
 
-  useEffect(() => {
-    console.log(selectedHike)
-  }, [selectedHike])
 
   let containerStyle;
   if (!props.containerStyle){
@@ -79,7 +76,7 @@ const MapContainer = (props) => {
               lat: selectedHike.latitude,
               lng: selectedHike.longitude
             }}
-            visible={true}
+            visible={firstLoad}
             >
               <div className="map_infobox">
                 <a href={`/hike/${selectedHike.id}`}>

@@ -222,7 +222,6 @@ const HikeForm = () => {
     const onSubmit = async(e) => {
       e.preventDefault()
       const data = await dispatch(createHike(name, latitude, longitude, description, photo, state))
-      console.log(data)
       history.push("/home")
     }
 
@@ -248,7 +247,6 @@ const HikeForm = () => {
 
     const updateState = (e) => {
       setState(e.target.value)
-      console.log(state)
     }
 
     return (
