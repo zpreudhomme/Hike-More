@@ -66,12 +66,8 @@ const Splash = () => {
                     </form>
                     <div className="search_result_container">
                        {searchReturns.map((el, i) => (
-                           <div id={el.id} className="search_result" onClick={(e) => onSearchClick(e)}>
-                               {el.total_favorites && (
-                                   <>
-                                   <h3>{el.name}</h3>
-                                   </>
-                               )}
+                           <div id={el.id} className="search_result" onClick={(e) => onSearchClick(e)}>                              
+                                   <h3>{el.name}</h3> 
                            </div>
                        ))}
                     </div>

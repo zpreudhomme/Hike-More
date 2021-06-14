@@ -9,7 +9,7 @@ def seed_users():
     fake = Faker()
 
     users = [
-        {'username': 'Demo', 'full_name': 'Demo Mountain', 'password': 'password'}  # noqa
+        {'username': 'Demo', 'full_name': 'Demo Omed', 'password': 'password'}  # noqa
     ]
 
     for i in range(49):
