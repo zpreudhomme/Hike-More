@@ -17,4 +17,13 @@
     align-items: center;
     flex-wrap: wrap;
     padding-bottom: 25px;
+    width: 100%;
+}
+
+.favorite_content h1{
+    font-size: 45px;
+}
+
+.favorites_container .hike_card{
+    width: 22%
 }

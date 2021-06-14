@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom'
 import MainNav from '../MainUI/Navbar'
 import Map from '../Map'
+import Footer from '../Footer'
 import './Hike.css'
 import { getHike, addAllHikes, deleteHike, editHike } from "../../store/hike"
 
 const containerStyle={
     position:'relative',
-    width: '400px',
-    height: '300px',
+    width: '500px',
+    height: '350px',
     margin: '0 auto',
     // 'grid-area': 'map',
 }
@@ -103,26 +104,33 @@ const Hike = () => {
             <div className="hike_content">
                 <img src={hike.photo} className="hike_photo" />
                 <h1 className="hike_name">{hike.name}</h1>
-                <h3 className="hike_total_favs">Favorites: {totalFavorites}</h3>
-                <p className="hike_description">{hike.description}</p>
-                <Map center={center} containerStyle={containerStyle} API_KEY={API_KEY}/>
                 <div className="hike_favorite_container">
                     {favorited ? (
-                        <div className={"remove_from_favorites"} onClick={removeFromFav}>Remove</div>
+                    <>
+                        <i class="fas fa-heart full-heart" onClick={removeFromFav}></i>
+                        <p className="hike_total_favs">Liked by {totalFavorites} {totalFavorites === 1 ? "person" : "people"}</p>
+                    </>
                     ): (
-                        <div className={"add_to_favorites"} onClick={addToFav}>Add</div> 
+                    <>
+                        <i class="far fa-heart empty-heart" onClick={addToFav}></i>
+                        <p className="hike_total_favs">Liked by {totalFavorites} {totalFavorites === 1 ? "person" : "people"}</p>
+                    </>
                     )}
                 </div>
+                <p className="hike_description">{hike.description}</p>
+                <Map center={center} containerStyle={containerStyle} API_KEY={API_KEY}/>
                 {user && user.id === hike.owner.id && (
                     <div className="hike_owner_buttons">
-                        <div className="edit_hike"><button type="button" onClick={editHike}>Edit My Hike</button></div>
-                        <div className="delete_hike"><button type="button" onClick={handleDeleteHike}>Delete My Hike</button></div>
+                        <button type="button" className="edit_hike" onClick={editHike}>Edit My Hike</button>
+                        <button type="button" className="delete_hike" onClick={handleDeleteHike}>Delete My Hike</button>
                     </div>
                 )}
             </div>:
             <>
+            <h1>Hike not found</h1>
             </>
             }
+            <Footer />
         </div>
     )
 }

@@ -72,7 +72,7 @@
     font-size: 20px;
     color: white;
     cursor: pointer;
-    margin-top: 25px;;
+    margin-top: 25px;
 }
 
 .main_create_btn:hover{
@@ -115,4 +115,18 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.main_content_name{
+    font-size: 45px;
+}
+
+#main_heart{
+    font-size: 20px;
+}
+
+.main_favorite_container{
+    display: flex;
+    align-items: center;
+
 }

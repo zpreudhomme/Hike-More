@@ -41,6 +41,10 @@
     flex-direction: column;
 }
 
+.login_form h2{
+    font-size: 26px;
+}
+
 .login_form_wrapper input{
     height: 30px;
     border-radius: 4px;

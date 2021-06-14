@@ -8,7 +8,9 @@
     justify-content: center;
     align-items:center;
     padding-right: 7px;
-    color: #058C42
+    color: #058C42;
+    position:relative;
+    bottom: 0;
 }
 
 h2 a {

@@ -62,7 +62,7 @@ class User(db.Model, UserMixin):
             "profile_photo": self.profile_photo,
             "created_at": str(self.created_at),
             "favorite_hikes": [hike.to_dict() for hike in self.favorite_hikes],   # noqa
-            "hikes_owned": [hike.to_dict_basic() for hike in self.hikes_owned],
+            "hikes_owned": [hike.to_dict() for hike in self.hikes_owned],
             # "routes": self.routes_owned.to_dict_basic()
             }
 
@@ -181,7 +181,7 @@ class State(db.Model):
             "id": self.id,
             "name": self.name,
             "abbr": self.abbr,
-            "hikes": [hike.to_dict_basic() for hike in self.hikes_in_state]
+            "hikes": [hike.to_dict() for hike in self.hikes_in_state]
         }
 
     def to_dict_basic(self):

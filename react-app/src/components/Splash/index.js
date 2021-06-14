@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../../store/session'
 import logo from '../../assets/images/hike-more.png'
@@ -9,16 +9,15 @@ const Splash = () => {
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const [searchParams, setSearchParams] = useState("")
-    const [searchReturns, setSearchReturns] = useState({})
+    const [searchReturns, setSearchReturns] = useState([])
+    const history = useHistory()
 
     const onLogout = async (e) => {
         dispatch(logout());
     };
 
-    const searchHikes = (e) => {
-        e.preventDefault();
-        console.log("I'm searching for stuff", e.target[0].value)
-        setSearchParams("")
+    const onSearchClick = (e) => {
+        history.push(`/hike/${e.target.id}`)
     }
 
     useEffect(() => {
@@ -32,12 +31,11 @@ const Splash = () => {
             })
 
             const data = await response.json();
-
-            setSearchReturns(data)
+            console.log(data)
+            setSearchReturns(data.hikes)
         }
         if (searchParams.length > 0) fetchHikes()
-        else setSearchReturns({})
-        console.log(searchReturns)
+        else setSearchReturns([])
     }, [searchParams])
 
     return (
@@ -62,11 +60,21 @@ const Splash = () => {
                     <form  className="splash_search_form">
                         <input 
                         type="text"
-                        placeholder="Search by hike, state, or creator..."
+                        placeholder="Search by hike"
                         value={searchParams}
                         onChange={(e) => setSearchParams(e.target.value)}></input>
-                        {/* <button type="submit">Search</button> */}
                     </form>
+                    <div className="search_result_container">
+                       {searchReturns.map((el, i) => (
+                           <div id={el.id} className="search_result" onClick={(e) => onSearchClick(e)}>
+                               {el.total_favorites && (
+                                   <>
+                                   <h3>{el.name}</h3>
+                                   </>
+                               )}
+                           </div>
+                       ))}
+                    </div>
                 </div>
             </div>
         </div>
