@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../../store/session'
 import logo from '../../assets/images/hike-more.png'
@@ -9,11 +9,16 @@ const Splash = () => {
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch();
     const [searchParams, setSearchParams] = useState("")
-    const [searchReturns, setSearchReturns] = useState({})
+    const [searchReturns, setSearchReturns] = useState([])
+    const history = useHistory()
 
     const onLogout = async (e) => {
         dispatch(logout());
     };
+
+    const onSearchClick = (e) => {
+        history.push(`/hike/${e.target.id}`)
+    }
 
     useEffect(() => {
         const fetchHikes = async () => {
@@ -27,10 +32,10 @@ const Splash = () => {
 
             const data = await response.json();
             console.log(data)
-            setSearchReturns(data.values)
+            setSearchReturns(data.hikes)
         }
         if (searchParams.length > 0) fetchHikes()
-        else setSearchReturns({})
+        else setSearchReturns([])
     }, [searchParams])
 
     return (
@@ -55,25 +60,21 @@ const Splash = () => {
                     <form  className="splash_search_form">
                         <input 
                         type="text"
-                        placeholder="Search by hike, state, or creator..."
+                        placeholder="Search by hike"
                         value={searchParams}
                         onChange={(e) => setSearchParams(e.target.value)}></input>
-                       {/* {searchReturns && (
-                           <div className="main_search_return">
-                               {searchReturns.map((el, i) => (
-                                   <div className="search_result">
-                                       {el.total_favorites && (
-                                           <>
-                                            <p className="search_hike_name">{el.name}</p>
-                                            <p className="search_hike_creator">{el.owner.full_name}</p>
-                                            <p className="search_hike_state">{el.state.name}</p>
-                                           </>
-                                       )}
-                                   </div>
-                               ))}
-                           </div>
-                       )} */}
                     </form>
+                    <div className="search_result_container">
+                       {searchReturns.map((el, i) => (
+                           <div id={el.id} className="search_result" onClick={(e) => onSearchClick(e)}>
+                               {el.total_favorites && (
+                                   <>
+                                   <h3>{el.name}</h3>
+                                   </>
+                               )}
+                           </div>
+                       ))}
+                    </div>
                 </div>
             </div>
         </div>

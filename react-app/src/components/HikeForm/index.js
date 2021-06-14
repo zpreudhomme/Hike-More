@@ -288,13 +288,13 @@ const HikeForm = () => {
               required={true}
             ></input>
             <label>Description</label>
-            <input
+            <textarea
               type="text"
               name="description"
               onChange={updateDescription}
               value={description}
               required={true}
-            ></input>
+            ></textarea>
             <label>Cover Photo</label>
             <input
               type="url"

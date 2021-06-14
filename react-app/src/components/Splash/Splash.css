@@ -115,7 +115,7 @@
 .splash_search_form input{
     width: 400px;
     height: 30px;
-    border-radius: 5px;
+    border-radius: 3px;
     font-size: 20px;
     border: none;
 }
@@ -141,4 +141,29 @@
 
 .splash_emphasis{
     font-style: oblique;
+}
+
+.search_result_container{
+    position:fixed;
+    background-color: white;
+    width: 404px;
+    margin-left: 267px;
+    margin-top: -32px;
+}
+
+.search_result_container + .search_result{
+    border-top: 1px solid gray;
+}
+
+.search_result{
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    border-top: 1px solid gray;
+}
+
+.search_result:hover{
+    background-color: lightgray;
+    cursor: pointer;
 }

@@ -225,7 +225,7 @@ const EditHike = () => {
       e.preventDefault()
       const data = await dispatch(editHike(id, name, latitude, longitude, description, photo, state))
       console.log(data)
-      history.push("/home")
+      history.push(`/hike/${id}`)
     }
 
     useEffect(async () => {
@@ -273,7 +273,7 @@ const EditHike = () => {
     }
 
     return (
-        <div className="hike page">
+        <div className="hike-form-page page">
         <MainNav />
         <div className="hike_form_content">
         <div className="hike_form_wrapper">
