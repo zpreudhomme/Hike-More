@@ -25,8 +25,13 @@
 .about_project{
     grid-area: project;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
+    padding-left: 25px;
+}
+
+.about_project h2{
+    text-align: center;
 }
 
 .about_creator{
@@ -39,4 +44,26 @@
 .about_profile_img{
     border-radius: 50%;
     width: 300px;
+}
+
+li{
+    font-size: 18px;
+}
+
+.about_goals a{
+    text-decoration: none;
+    color: #058C42;
+}
+
+.about_profile_description{
+    font-size: 18px;
+}
+
+.about_profile_description a{
+    text-decoration: none;
+    color: #058C42;
+}
+
+.about_goals{
+    font-size: 18px;
 }
