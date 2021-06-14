@@ -96,9 +96,14 @@ def delete_from_favorites(id):
     return current_user.to_dict()
 
 
+def grab_favorites(hike):
+    return hike["total_favorites"]
+
+
 @hike_routes.route("/popular")
 def most_popular():
     hikes = Hike.query.all()
-    popular = []
-    print("HERE_____________", hikes)
-    return "test"
+    all_hikes = [hike.to_dict() for hike in hikes]
+    sorted_hikes = sorted(all_hikes, key=grab_favorites, reverse=True)
+    popular = sorted_hikes[0:8]
+    return {"popular": popular}

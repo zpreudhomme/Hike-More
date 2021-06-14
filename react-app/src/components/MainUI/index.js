@@ -48,7 +48,7 @@ const MainUI = () => {
     useEffect(async () => {
         const response = await fetch("/api/hike/popular")
         const data = await response.json()
-        console.log(data)
+        setPopularHikes(data.popular)
     }, [])
 
     useEffect(() => {
@@ -72,12 +72,14 @@ const MainUI = () => {
                 <h2>Recent Hikes Added</h2>
                 <div className="main_recent">
                     { recentHikes.map((hike, i) => (
-                        <HikeCard hike={hike} key={i} />
+                        <HikeCard hike={hike} key={hike.id} />
                     ))}
                 </div>
                 <h2>Popular Hikes</h2>
                 <div className="main_popular">
-
+                        {popularHikes.map((hike, i) => (
+                            <HikeCard hike={hike} key={i} />
+                        ))}
                 </div>
             </div>
         </div>

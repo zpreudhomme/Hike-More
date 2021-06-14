@@ -125,6 +125,7 @@ class Hike(db.Model):
             "name": self.name,
             "description": self.description,
             "created_at": str(self.created_at),
+            "total_favorites": len([user.to_dict_basic() for user in self.user_favorites]),   # noqa
         }
 
 

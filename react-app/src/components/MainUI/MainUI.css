@@ -44,7 +44,6 @@
 
 #main_nav_text{
     position: relative;
-    
 }
 
 .main_create_btn{
@@ -64,11 +63,19 @@
 
 .main_create_btn:hover{
     border: 1px solid white;
-    width: 198px;
+    width: 223px;
     height: 48px;
 }
 
 .map_photo{
     max-width: 200px;
     max-height: 250px;
+}
+
+.main_popular{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 25px;
 }
