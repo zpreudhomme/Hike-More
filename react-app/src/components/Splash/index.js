@@ -65,7 +65,7 @@ const Splash = () => {
                     </form>
                     <div className="search_result_container">
                        {searchReturns.map((el, i) => (
-                           <div id={el.id} className="search_result" onClick={(e) => onSearchClick(e)}>                              
+                           <div id={el.id} className="search_result" onClick={() => history.push(`/hike/${el.id}`)}>                              
                                    <h3>{el.name}</h3> 
                            </div>
                        ))}
