@@ -16,7 +16,7 @@ const Favorites = () => {
     return (
         <div className="favorite page">
             <NavBar />
-        { favorites ? (
+        { (favorites && favorites.length > 0) ? (
             <div className="favorite_content">
                 <h1>Favorite Hikes</h1>
                 <div className="favorites_container">

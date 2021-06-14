@@ -8,19 +8,19 @@
     display: grid;
     flex-direction: column;
     align-items: center;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 675px 80px 1fr, 50px;
     grid-template-areas: 
     "photo photo photo"
-    "name name name"
+    "name name button"
     "description description map"
-    "button favorites owner";
+    ". . owner";
     box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.445), -1px 0px 7px rgba(0, 0, 0, 0.445);
 }
 
 .hike_name{
     grid-area: name;
-    margin: 0 auto 15px auto;
+    margin: 15px auto 15px auto;
     font-size: 40px;
     border-bottom: 1px solid black;
     width: 100%;
@@ -30,9 +30,10 @@
 
 .hike_description{
     grid-area: description;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     padding: 15px;
     font-size: 18px;
+    align-self: flex-start;
 }
 
 .hike_photo{
@@ -47,23 +48,26 @@
     margin: 15px 15px 0px 0px
 }
 
-.add_to_fav{
+
+.hike_favorite_container{
     grid-area: button;
+    border-bottom: 1px solid black;
+    text-align: center;
+    padding-bottom:3px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
 }   
+
+.hike_total_favs{
+    padding-left: 15px;
+    font-size: 18px;
+}
 
 .hike_owner_buttons{
     grid-area: owner;
     display: flex;
     justify-content: space-around;
-}
-
-.hike_total_favs{
-    grid-area: favorites
 }
 
 .add_to_fav button{
@@ -119,4 +123,38 @@
     align-items: center;
     flex-wrap: wrap;
     padding-bottom: 25px;
+}
+
+.fa-heart{
+    font-size: 50px;
+}
+
+.full-heart{
+    color:red;
+}
+
+.edit_hike,
+.delete_hike{
+    text-decoration: none;
+    background-color: #058C42;
+    width: 175px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    margin: 20px 0px;
+}
+
+.edit_hike:hover,
+.delete_hike:hover{
+    border: 1px solid white;
+    width: 173px;
+    height: 36px;
+    margin: 20px 1px;
 }

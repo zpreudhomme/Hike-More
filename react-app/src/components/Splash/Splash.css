@@ -52,6 +52,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.splash_logout{
+    margin-right: 15px;
+}
+
 .splash_auth:hover{
     border: 1px solid white;
     width: 98px;

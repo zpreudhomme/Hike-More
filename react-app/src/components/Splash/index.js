@@ -15,12 +15,6 @@ const Splash = () => {
         dispatch(logout());
     };
 
-    const searchHikes = (e) => {
-        e.preventDefault();
-        console.log("I'm searching for stuff", e.target[0].value)
-        setSearchParams("")
-    }
-
     useEffect(() => {
         const fetchHikes = async () => {
             const response = await fetch('api/search/', {
