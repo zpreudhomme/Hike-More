@@ -14,7 +14,6 @@ const mapStyles = {
 
 const MapContainer = (props) => {
   const userLocation = useSelector(state => state.location.userLocation)
-  const user = useSelector(state => state.session.user)
   const hikes = useSelector(state => state.hike)
   
   const [selectedHike, setSelectedHike] = useState(null);
@@ -24,6 +23,16 @@ const MapContainer = (props) => {
     console.log("I have set selected hike to:   ", hike)
   }
 
+  useEffect(() => {
+    console.log(hikes.hikes)
+    if (hikes.hikes){
+      setSelectedHike(hikes.hikes[0])
+    }
+  }, [hikes])
+
+  useEffect(() => {
+    console.log(selectedHike)
+  }, [selectedHike])
 
   let containerStyle;
   if (!props.containerStyle){
@@ -36,19 +45,13 @@ const MapContainer = (props) => {
   } else{
     containerStyle = props.containerStyle
   }
-
-    // useEffect(() => {
-    //   console.log(selectedHike)
-    // }, [hikes, selectedHike])
-
-
-    let center = { lat: 35.3462, lng: -111.6791 }
-    if (userLocation){
-      center = {lat: userLocation.latitude, lng: userLocation.longitude}
-    }
-    if (props.center){
-      center = props.center
-    }
+  let center = { lat: 35.3462, lng: -111.6791 }
+  if (userLocation){
+    center = {lat: userLocation.latitude, lng: userLocation.longitude}
+  }
+  if (props.center){
+    center = props.center
+  }
   let markers;
     if (hikes.hikes !== null){
       markers = (hikes.hikes.map((place, i)=> (

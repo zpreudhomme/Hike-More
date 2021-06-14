@@ -107,12 +107,12 @@ const Hike = () => {
                 <div className="hike_favorite_container">
                     {favorited ? (
                     <>
-                        <i class="fas fa-heart full-heart" onClick={removeFromFav}></i>
+                        <i className="fas fa-heart full-heart" onClick={removeFromFav}></i>
                         <p className="hike_total_favs">Liked by {totalFavorites} {totalFavorites === 1 ? "person" : "people"}</p>
                     </>
                     ): (
                     <>
-                        <i class="far fa-heart empty-heart" onClick={addToFav}></i>
+                        <i className="far fa-heart empty-heart" onClick={addToFav}></i>
                         <p className="hike_total_favs">Liked by {totalFavorites} {totalFavorites === 1 ? "person" : "people"}</p>
                     </>
                     )}

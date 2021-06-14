@@ -66,12 +66,12 @@ const HikeCard = ({hike}) => {
                 <div className="main_favorite_container">
                     {favorited ? (
                     <>
-                        <i id="main_heart" class="fas fa-heart full-heart" onClick={(e) => removeFromFav(e)}></i>
+                        <i id="main_heart" className="fas fa-heart full-heart" onClick={(e) => removeFromFav(e)}></i>
                         <p className="hike_total_favs">Liked by {totalFavorites} {totalFavorites === 1 ? "person" : "people"}</p>
                     </>
                     ): (
                     <>
-                        <i id="main_heart" class="far fa-heart empty-heart" onClick={(e) => addToFav(e)}></i>
+                        <i id="main_heart" className="far fa-heart empty-heart" onClick={(e) => addToFav(e)}></i>
                         <p className="hike_total_favs">Liked by {totalFavorites} {totalFavorites === 1 ? "person" : "people"}</p>
                     </>
                     )}
