@@ -224,7 +224,6 @@ const EditHike = () => {
     const onSubmit = async(e) => {
       e.preventDefault()
       const data = await dispatch(editHike(id, name, latitude, longitude, description, photo, state))
-      console.log(data)
       history.push(`/hike/${id}`)
     }
 
@@ -269,7 +268,6 @@ const EditHike = () => {
 
     const updateState = (e) => {
       setState(e.target.value)
-      console.log(state)
     }
 
     return (
@@ -331,7 +329,6 @@ const EditHike = () => {
                     onChange={updateState}
                     value={state}>
                         {states.map((el, i) => {
-                            console.log(i + 1 === state)
                             return (
                         <option value={i + 1} key={el.abbr} selected={i + 1 === state}>{el.name}</option>
                         )})}

@@ -34,11 +34,8 @@ const Hike = () => {
             method: ["PUT"]
         })
         let data = await response.json()
-        console.log(data)
         setFavorited(true)
         setTotalFavorites(totalFavorites + 1)
-
-        console.log("Adding to fav list")
     }
 
     const removeFromFav = async () => {
@@ -50,16 +47,13 @@ const Hike = () => {
             method: ["PUT"]
         })
         let data = await response.json()
-        console.log(data)
         setFavorited(false)
         setTotalFavorites(totalFavorites - 1)
 
-        console.log("Remove from Fav")
     }
 
     const handleDeleteHike = async() => {
         let data = dispatch(deleteHike(id))
-        console.log(data)
         history.push('/home')
     }
 
@@ -70,7 +64,6 @@ const Hike = () => {
     useEffect(() => {
         if (user){
             for (let i = 0; i < user.favorite_hikes.length; i++){
-                console.log(user.favorite_hikes[i].id, id)
                 if (user.favorite_hikes[i].id === Number(id)){
                     setFavorited(true)
                     return;

@@ -33,11 +33,8 @@ const HikeCard = ({hike}) => {
             method: ["PUT"]
         })
         let data = await response.json()
-        console.log(data)
         setFavorited(true)
         setTotalFavorites(totalFavorites + 1)
-
-        console.log("Adding to fav list")
     }
 
     const removeFromFav = async () => {
@@ -49,11 +46,8 @@ const HikeCard = ({hike}) => {
             method: ["PUT"]
         })
         let data = await response.json()
-        console.log(data)
         setFavorited(false)
         setTotalFavorites(totalFavorites - 1)
-
-        console.log("Remove from Fav")
     }
 
     return (

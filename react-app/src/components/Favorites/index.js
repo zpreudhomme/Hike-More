@@ -10,7 +10,6 @@ const Favorites = () => {
     useEffect(async () => {
         const response = await fetch('/api/hike/favorites')
         const data = await response.json();
-        console.log(data)
         setFavorites(data.hikes)
     }, [])
     return (

@@ -11,8 +11,6 @@ const rootReducer = combineReducers({
     hike,
 });
 
-console.log(os.environ)
-
 let enhancer;
 
 if (process.env.NODE_ENV === 'production') {

@@ -29,11 +29,9 @@ export const getHike = async (id) => {
 }
 
 export const deleteHike = (id) => async dispatch => {
-    console.log("Where I want to be")
     const response = await fetch(`/api/hike/${id}`, {
         method: 'DELETE',
     })
-    console.log("finished")
     const data = await response.json()
     return data;
 }

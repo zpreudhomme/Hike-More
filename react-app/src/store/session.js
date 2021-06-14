@@ -74,9 +74,7 @@ export const authenticate = () => async (dispatch) => {
       }),
     });
     const data = await response.json();
-    console.log(data.errors)
     if (data.errors){
-      console.log("Hello!")
         return data;
     }
     

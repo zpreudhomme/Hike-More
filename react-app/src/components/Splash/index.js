@@ -31,7 +31,6 @@ const Splash = () => {
             })
 
             const data = await response.json();
-            console.log(data)
             setSearchReturns(data.hikes)
         }
         if (searchParams.length > 0) fetchHikes()
