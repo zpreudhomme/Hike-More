@@ -116,3 +116,17 @@
     align-items: center;
     flex-direction: column;
 }
+
+.main_content_name{
+    font-size: 45px;
+}
+
+#main_heart{
+    font-size: 20px;
+}
+
+.main_favorite_container{
+    display: flex;
+    align-items: center;
+
+}

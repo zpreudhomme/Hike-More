@@ -34,7 +34,7 @@
 
 .splash_auth_buttons{
     display: flex;
-    margin-right: 50px;
+    margin-right: 35px;
 }
 
 .splash_auth{
@@ -53,7 +53,7 @@
 }
 
 .splash_logout{
-    margin-right: 15px;
+    margin-right: 35px;
 }
 
 .splash_auth:hover{

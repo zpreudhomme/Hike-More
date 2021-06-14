@@ -158,3 +158,32 @@
     height: 36px;
     margin: 20px 1px;
 }
+
+.map_infobox{
+    width: 250px;
+    height: 325px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.map_infobox img{
+    width: 100%
+}
+
+.map_infobox a{
+    text-decoration: none;
+    color: black;
+}
+
+.map_infobox a:hover{
+    text-decoration: none;
+    color: #058C42;
+}
+
+.map_infobox h3{
+    margin: 7px 0px;
+    text-align: center;
+}

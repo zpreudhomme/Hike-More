@@ -26,12 +26,11 @@ const Splash = () => {
             })
 
             const data = await response.json();
-
-            setSearchReturns(data)
+            console.log(data)
+            setSearchReturns(data.values)
         }
         if (searchParams.length > 0) fetchHikes()
         else setSearchReturns({})
-        console.log(searchReturns)
     }, [searchParams])
 
     return (
@@ -59,7 +58,21 @@ const Splash = () => {
                         placeholder="Search by hike, state, or creator..."
                         value={searchParams}
                         onChange={(e) => setSearchParams(e.target.value)}></input>
-                        {/* <button type="submit">Search</button> */}
+                       {/* {searchReturns && (
+                           <div className="main_search_return">
+                               {searchReturns.map((el, i) => (
+                                   <div className="search_result">
+                                       {el.total_favorites && (
+                                           <>
+                                            <p className="search_hike_name">{el.name}</p>
+                                            <p className="search_hike_creator">{el.owner.full_name}</p>
+                                            <p className="search_hike_state">{el.state.name}</p>
+                                           </>
+                                       )}
+                                   </div>
+                               ))}
+                           </div>
+                       )} */}
                     </form>
                 </div>
             </div>

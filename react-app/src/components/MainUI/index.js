@@ -65,7 +65,7 @@ const MainUI = () => {
         <div className="main page">
             <MainNav />
             <div className="main_content">
-                <h2>Find Your Hike</h2>
+                <h2 className="main_content_name">Find Your Hike</h2>
                 <div className="main_map" id="main_map">
                     <Map API_KEY={API_KEY}/>
                 </div>

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux'
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+import { useHistory } from 'react-router';
 
 require('dotenv').config()
-
-const API_KEY = process.env.REACT_APP_GOOGLE_API
 
 const mapStyles = {
   width: '50%',
@@ -15,6 +14,7 @@ const mapStyles = {
 
 const MapContainer = (props) => {
   const userLocation = useSelector(state => state.location.userLocation)
+  const user = useSelector(state => state.session.user)
   const hikes = useSelector(state => state.hike)
   
   const [selectedHike, setSelectedHike] = useState(null);
@@ -23,6 +23,7 @@ const MapContainer = (props) => {
     setSelectedHike(hike)
     console.log("I have set selected hike to:   ", hike)
   }
+
 
   let containerStyle;
   if (!props.containerStyle){
@@ -77,14 +78,14 @@ const MapContainer = (props) => {
             }}
             visible={true}
             >
-              <div>
+              <div className="map_infobox">
                 <a href={`/hike/${selectedHike.id}`}>
                   <h1>{selectedHike.name}</h1>
                 </a>
                 <img src={selectedHike.photo} className="map_photo"/>
-                <h2>Latitude: {selectedHike.latitude}</h2>
-                <h2>Longitude: {selectedHike.longitude}</h2>
-                <p>{selectedHike.description}</p>
+                <h3>Located in {selectedHike.state.name}</h3>
+                <h3>Created by {selectedHike.owner.full_name}</h3>
+                <h3>Liked by {selectedHike.total_favorites} {selectedHike.total_favorites === 1 ? "person" : "people"}</h3>
               </div>
             </InfoWindow>
           }

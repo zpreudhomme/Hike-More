@@ -9,8 +9,8 @@ import { getHike, addAllHikes, deleteHike, editHike } from "../../store/hike"
 
 const containerStyle={
     position:'relative',
-    width: '400px',
-    height: '300px',
+    width: '500px',
+    height: '350px',
     margin: '0 auto',
     // 'grid-area': 'map',
 }

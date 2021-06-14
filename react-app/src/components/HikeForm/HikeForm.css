@@ -1,11 +1,68 @@
+.hike_form_wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
 .hike_form{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 250px;
 }
 
-.hike_form_content{
+.hike_form_wrapper input{
+    height: 30px;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.hike_form_wrapper select {
+    height: 30px;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 10px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.hike_form_wrapper label{
+    font-size: 20px;
+    margin-bottom: 7px;
+    font-weight: 400;
+}
+
+.hike_form button {
+    text-decoration: none;
+    background-color: #058C42;
+    width: 115px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    margin-bottom: -15px;
+}
+
+.hike_form_wrapper h2 {
+    margin-top: -15px;
+    font-size: 26px;
+}
+
+/* .hike_form_content{
     width: 80%;
     margin-top: 75px;
     background-color: #E5F2C9;
@@ -16,5 +73,21 @@
     flex-direction: column;
     align-items: center;
     box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.445), -1px 0px 7px rgba(0, 0, 0, 0.445);
+} */
 
+.hike-form-page{
+    background: url(https://i.ibb.co/NrkyY6L/caleb-woods-SDCGn5vn07-Q-unsplash.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

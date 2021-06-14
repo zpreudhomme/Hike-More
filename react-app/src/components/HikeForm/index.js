@@ -252,7 +252,7 @@ const HikeForm = () => {
     }
 
     return (
-        <div className="hike page">
+        <div className="hike-form-page page">
         <MainNav />
         <div className="hike_form_content">
         <div className="hike_form_wrapper">
