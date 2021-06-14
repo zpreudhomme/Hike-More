@@ -60,7 +60,7 @@ def seed_hikes():
         location = locator.reverse(str(info[0])+", "+str(info[1]))
         address = location.raw['address']
         state = address["state"]
-        photoIndex = random.randint(1, 39)
+        photoIndex = random.randint(1, len(photoArray))
         photoIndex -= 1
         photo = photoArray[photoIndex]
         selected = State.query.filter_by(name=state).first()
